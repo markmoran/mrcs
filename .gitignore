@@ -1,3 +1,9 @@
 .DS_Store
 .env
 *.local
+.vercel
+
+# Source wireframe files (deployed versions live in wf/)
+mrcs-wireframe-*.html
+mrcs-components.js
+temp-check/
