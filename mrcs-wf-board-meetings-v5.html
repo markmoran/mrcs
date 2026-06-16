@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board Meetings — Mount Rogers Community Services</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    :root {
+      --bg: #f2f2f0; --surface: #ffffff; --border: #d0d0cc; --border-dark: #b0b0aa;
+      --text-dark: #1a1a1a; --text-mid: #555550; --text-light: #888880;
+      --label-bg: #e4e4e0; --nav-bg: #1e1e1e; --dark-bg: #1e1e1e; --accent: #c0392b; --radius: 3px;
+      --font-body: 'Inter', Arial, Helvetica, sans-serif;
+      --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 32px; --space-xl: 64px; --space-2xl: 96px;
+      --container-max: 1200px; --container-pad: var(--space-lg);
+    }
+    body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--text-dark); background: var(--bg); }
+    h1 { font-size: clamp(36px, 5vw, 48px); font-weight: 700; line-height: 1.1; }
+    h2 { font-size: clamp(26px, 3vw, 30px); font-weight: 700; line-height: 1.2; }
+    h3 { font-size: clamp(20px, 2.5vw, 22px); font-weight: 600; line-height: 1.3; }
+    h4 { font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; line-height: 1.3; }
+    p { color: var(--text-mid); }
+    a { color: inherit; text-decoration: underline; }
+    a:hover { opacity: 0.75; text-decoration: none; }
+    .section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: var(--space-md); }
+    .section { padding: var(--space-xl) 0; }
+    .section--dark { background: var(--dark-bg); color: #fff; }
+    .section--dark p { color: #fff; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+    .btn { display: inline-block; padding: 10px 24px; border-radius: var(--radius); font-size: 15px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; transition: all 0.15s ease; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--text-dark); color: #fff; }
+    .btn:hover { opacity: 0.85; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: var(--space-lg); }
+    @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } .meeting-card { flex-direction: column; gap: 24px; } }
+
+    :root { --util-bg: #999999; }
+    .util-bar { background: var(--util-bg); padding: 7px 0; }
+    .util-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+    .util-gethelp { display: inline-block; font-size: 12px; font-weight: 600; color: #fff; background: var(--text-dark); border: none; padding: 4px 12px; border-radius: var(--radius); text-decoration: none; }
+    .util-phone { background: var(--accent); color: #fff; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: var(--radius); text-decoration: none; }
+    .site-nav { background: var(--dark-bg); position: relative; z-index: 200; }
+    .nav-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-mark { width: 34px; height: 34px; border-radius: 50%; background: #fff; flex-shrink: 0; }
+    .nav-logo-text { font-size: 12px; font-weight: 600; color: #fff; line-height: 1.35; max-width: 160px; }
+    .nav-links { display: flex; align-items: center; gap: 0; }
+    .nav-item { position: relative; }
+    .nav-item > a { display: block; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.9); padding: 6px 9px; white-space: nowrap; text-decoration: underline; }
+    .nav-item > a:hover { opacity: 0.7; text-decoration: none; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; min-width: 200px; background: var(--dark-bg); border: 1px solid rgba(255,255,255,0.1); border-top: 2px solid var(--accent); padding: 6px 0; z-index: 300; }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a { display: block; padding: 7px 16px; font-size: 13px; color: rgba(255,255,255,0.8); text-decoration: none; white-space: nowrap; }
+    .nav-search-btn { background: none; border: none; cursor: pointer; padding: 6px 8px; color: rgba(255,255,255,0.9); line-height: 1; display: flex; align-items: center; }
+    .crisis { background: var(--dark-bg); padding: 52px 0; text-align: center; }
+    .crisis .section-label { color: rgba(255,255,255,0.8); margin-bottom: 14px; }
+    .crisis h2 { color: #fff; font-size: 22px; margin: 0 auto 12px; line-height: 1.3; }
+    .crisis p { color: #fff; }
+    .crisis-subcopy { font-size: 14px; margin: 0 auto 18px; line-height: 1.7; }
+    .crisis-phone { display: block; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 24px; text-decoration: none; }
+    .crisis .btn-primary { padding: 10px 36px; }
+    .work-cta { background: var(--surface); padding: 52px 0; text-align: center; }
+    .work-cta h2 { margin-bottom: 14px; }
+    .work-cta p { font-size: 15px; color: var(--text-mid); margin-bottom: 28px; }
+    .footer { background: var(--dark-bg); padding: 52px 0 0; }
+    .footer .container { padding-left: 60px; padding-right: 60px; }
+    .footer p { color: #fff; }
+    .footer-logo-name { display: block; font-size: 13px; font-weight: 600; color: #fff; line-height: 1.35; margin-bottom: 24px; text-decoration: none; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 3fr; gap: 48px; padding-bottom: 32px; align-items: start; }
+    .footer-address { font-size: 13px; line-height: 1.75; color: #fff; margin-bottom: 4px; }
+    .footer-see-locations { display: block; font-size: 12px; color: #fff; text-decoration: underline; margin-bottom: 14px; }
+    .footer-phone { display: block; font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 2px; text-decoration: none; }
+    .footer-crisis-note { font-size: 12px; color: #fff; margin-bottom: 16px; }
+    .footer-social { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .social-link { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #fff; text-decoration: none; }
+    .social-icon { width: 22px; height: 22px; background: rgba(255,255,255,0.15); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+    .footer-newsletter-btn { display: inline-block; font-size: 12px; font-weight: 600; padding: 7px 14px; background: rgba(255,255,255,0.2); border-radius: var(--radius); color: #fff; text-decoration: none; border: none; margin-bottom: 16px; }
+    .footer-bottom-row { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
+    .footer-subsidiary { font-size: 11px; color: #fff; line-height: 1.6; flex: 1; }
+    .footer-link-rows { display: flex; flex-direction: column; margin-bottom: 20px; }
+    .footer-link-row { display: flex; align-items: baseline; padding: 16px 0; }
+    .footer-link-row-head { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; width: 120px; flex-shrink: 0; }
+    .footer-link-row-links { display: flex; flex: 1; justify-content: space-between; }
+    .footer-link-row-links a { font-size: 13px; color: #fff; text-decoration: underline; }
+    .footer-badges { display: flex; gap: 15px; align-items: center; }
+    .badge-circle { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.7); }
+    .footer-bar { background: #e8e8e4; padding: 14px 0; }
+    .footer-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-bar-inner p { font-size: 11px; color: var(--text-dark); }
+    .footer-bar-links { display: flex; gap: 20px; }
+    .footer-bar-links a { font-size: 11px; color: var(--text-dark); text-decoration: none; }
+    .services-section { background: var(--bg); padding: var(--space-xl) 0; text-align: center; }
+    .services-section .section-label { margin-bottom: var(--space-lg); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+    .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 16px; text-align: center; }
+    .service-card h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .service-card p { font-size: 14px; color: var(--text-mid); }
+
+    /* Board Meetings Page Overrides */
+    .hero { background: var(--surface); padding: 72px 0 80px; }
+    .hero-inner { max-width: 800px; width: 100%; margin: 0 auto; }
+    .hero .breadcrumb { font-size: 14px; margin-bottom: 28px; color: var(--text-mid); }
+    .hero .breadcrumb a { color: var(--text-dark); text-decoration: underline; }
+    .hero h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; }
+    .hero .subhead { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; }
+    .hero p { margin-bottom: var(--space-md); }
+
+    .next-meeting { background: var(--surface); padding: 48px 0; }
+    .next-meeting h2 { margin-bottom: 24px; }
+    .meeting-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; display: flex; gap: 48px; align-items: flex-start; }
+    .meeting-col h4 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .meeting-col p { font-size: 14px; color: var(--text-mid); margin-bottom: 4px; }
+    .meeting-col a { font-size: 14px; color: var(--text-dark); text-decoration: underline; display: block; margin-top: 12px; }
+    .meeting-col a:hover { opacity: 0.75; text-decoration: none; }
+    .col-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-light); margin-bottom: 8px; font-weight: 500; }
+
+    .archive-section { background: var(--bg); padding: 64px 0; }
+    .archive-section h2 { margin-bottom: 28px; }
+    .archive-table { width: 100%; border-collapse: collapse; }
+    .archive-table thead th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); border-bottom: 2px solid var(--border-dark); padding: 8px 16px; text-align: left; }
+    .archive-table tbody tr:nth-child(odd) { background: var(--surface); }
+    .archive-table tbody tr:nth-child(even) { background: var(--bg); }
+    .archive-table tbody td { font-size: 14px; color: var(--text-dark); padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .archive-table tbody td a { color: var(--text-dark); text-decoration: underline; }
+    .archive-table tbody td a:hover { opacity: 0.75; text-decoration: none; }
+    .no-minutes { font-size: 13px; color: var(--text-light); font-style: italic; }
+
+    .callout { background: var(--surface); }
+    .callout-row { display: flex; gap: 48px; align-items: flex-start; }
+    .callout-text { flex: 1; }
+    .callout-text h2 { margin-bottom: 16px; }
+    .callout-text p { margin-bottom: 12px; }
+    .callout-media { width: 280px; height: 220px; background: var(--label-bg); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); border-radius: var(--radius); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="mrcs-header"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="breadcrumb">
+        <a href="mrcs-wf-home-v5.html">Home</a> / Board Meetings
+      </div>
+      <h1>Board Meetings</h1>
+      <p class="subhead">Sub-title or short description tagline text</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <button class="btn btn-secondary" style="margin-top: 24px;">Request to Address the Board</button>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT MEETING SECTION -->
+<section class="next-meeting">
+  <div class="container">
+    <h2>Next Meeting</h2>
+    <div class="meeting-card">
+      <div class="meeting-col" style="flex: 1;">
+        <h4>Jan 20, 2027</h4>
+        <p>Wednesday</p>
+        <p>9:00 AM</p>
+        <a href="#">Meeting Agenda</a>
+      </div>
+      <div class="meeting-col" style="flex: 1;">
+        <p class="col-label">Meeting Location</p>
+        <p>Board Name</p>
+        <p>123 Main Street, Suite 1234</p>
+        <p>City Name, VA 12345</p>
+      </div>
+      <div class="meeting-col" style="flex: 1;">
+        <p class="col-label">Online Access</p>
+        <p>Zoom Meeting Link</p>
+        <a href="#">link.com/blah/link-blah</a>
+        <p style="margin-top: 12px;">Passcode: 5094X5E</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEETING ARCHIVE SECTION -->
+<section class="archive-section">
+  <div class="container">
+    <h2>Meeting Archive</h2>
+    <table class="archive-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Agenda</th>
+          <th>Minutes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jan 11, 2025</td>
+          <td><a href="#">Agenda</a></td>
+          <td><a href="#">Minutes</a></td>
+        </tr>
+        <tr>
+          <td>Dec 14, 2024</td>
+          <td><a href="#">Agenda</a></td>
+          <td><a href="#">Minutes</a></td>
+        </tr>
+        <tr>
+          <td>Nov 9, 2024</td>
+          <td><a href="#">Agenda</a></td>
+          <td><span class="no-minutes">No Minutes Available</span></td>
+        </tr>
+        <tr>
+          <td>Oct 12, 2024</td>
+          <td><a href="#">Agenda</a></td>
+          <td><a href="#">Minutes</a></td>
+        </tr>
+        <tr>
+          <td>Sep 14, 2024</td>
+          <td><a href="#">Agenda</a></td>
+          <td><a href="#">Minutes</a></td>
+        </tr>
+        <tr>
+          <td>Aug 10, 2024</td>
+          <td><a href="#">Agenda</a></td>
+          <td><a href="#">Minutes</a></td>
+        </tr>
+        <tr>
+          <td>Jul 13, 2024</td>
+          <td><a href="#">Agenda</a></td>
+          <td><a href="#">Minutes</a></td>
+        </tr>
+        <tr>
+          <td>Jun 8, 2024</td>
+          <td><a href="#">Agenda</a></td>
+          <td><a href="#">Minutes</a></td>
+        </tr>
+        <tr>
+          <td>May 11, 2024</td>
+          <td><a href="#">Agenda</a></td>
+          <td><a href="#">Minutes</a></td>
+        </tr>
+        <tr>
+          <td>Apr 13, 2024</td>
+          <td><a href="#">Agenda</a></td>
+          <td><a href="#">Minutes</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CRISIS -->
+<div id="mrcs-crisis"></div>
+
+<!-- CALLOUT SECTION -->
+<section class="callout" style="padding: var(--space-xl) 0;">
+  <div class="container">
+    <div class="section-label">Callout Section</div>
+    <div class="callout-row">
+      <div class="callout-text">
+        <h2>Section Heading</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div class="callout-media">280px × 220px</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div id="mrcs-services"></div>
+
+<!-- WORK CTA -->
+<div id="mrcs-work-cta"></div>
+
+<!-- FOOTER -->
+<div id="mrcs-footer"></div>
+
+<script src="mrcs-components.js"></script>
+
+</body>
+</html>
+
+<!-- CHANGELOG
+v5:
+- New file: Board Meetings page
+- Hero: H1 + subhead + body + Request to Address the Board button
+- Next Meeting section: 3-col card (date/time, meeting location, online access)
+- Meeting Archive: styled table with 10 rows, Agenda/Minutes links, alternating row colors
+- Callout section with media placeholder
+-->

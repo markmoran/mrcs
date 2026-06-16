@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page | Mount Rogers Community Services</title>
+  <style>
+    /* 1. RESET */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+
+    /* 2. PALETTE */
+    :root {
+      --bg: #f2f2f0; --surface: #ffffff; --border: #d0d0cc; --border-dark: #b0b0aa;
+      --text-dark: #1a1a1a; --text-mid: #555550; --text-light: #888880;
+      --label-bg: #e4e4e0; --nav-bg: #1e1e1e; --dark-bg: #1e1e1e; --accent: #c0392b; --radius: 3px;
+    }
+
+    /* 3. SEMANTIC TOKENS */
+    :root {
+      --color-primary: var(--accent); --color-secondary: var(--text-mid);
+      --color-bg: var(--bg); --color-surface: var(--surface);
+      --color-text: var(--text-dark); --color-heading: var(--text-dark);
+      --color-cta-bg: var(--accent); --color-cta-text: #ffffff;
+      --color-nav-bg: var(--nav-bg);
+      --font-body: 'Inter', Arial, Helvetica, sans-serif;
+      --font-heading: 'Inter', Arial, Helvetica, sans-serif;
+      --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 32px; --space-xl: 64px; --space-2xl: 96px;
+      --container-max: 1200px; --container-pad: var(--space-lg);
+    }
+
+    /* 4. BASE */
+    body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--text-dark); background: var(--bg); }
+    h1 { font-size: clamp(36px, 5vw, 48px); font-weight: 700; line-height: 1.1; }
+    h2 { font-size: clamp(26px, 3vw, 30px); font-weight: 700; line-height: 1.2; }
+    h3 { font-size: clamp(20px, 2.5vw, 22px); font-weight: 600; line-height: 1.3; }
+    h4 { font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; line-height: 1.3; }
+    p { color: var(--text-mid); }
+    small, .meta { font-size: 13px; color: var(--text-light); }
+    a { color: inherit; text-decoration: underline; }
+    a:hover { opacity: 0.75; text-decoration: none; }
+    .section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: var(--space-md); }
+
+    /* 5. LAYOUT */
+    .section { padding: var(--space-xl) 0; }
+    .section--dark { background: var(--dark-bg); color: #fff; }
+    .section--gray { background: var(--bg); }
+    .section--white { background: var(--surface); }
+    .section--dark p { color: #fff; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+    .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-lg); }
+    .grid-stretch { align-items: stretch; }
+    .card-equal { display: flex; flex-direction: column; }
+
+    /* 6. COMPONENTS */
+    .nav { background: var(--nav-bg); padding: 0 var(--space-lg); display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { color: #fff; font-weight: 700; font-size: 18px; text-decoration: none; }
+    .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; }
+    .nav-links a:hover { opacity: 0.75; }
+    .nav-item { position: relative; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--surface); border: 1px solid var(--border); min-width: 180px; z-index: 200; }
+    .nav-dropdown li { list-style: none; }
+    .nav-dropdown a { display: block; padding: var(--space-sm) var(--space-md); color: var(--text-dark); font-size: 14px; }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .btn { display: inline-block; padding: 10px 24px; border-radius: var(--radius); font-size: 15px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; transition: all 0.15s ease; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--text-dark); color: #fff; }
+    .btn-ghost { background: var(--label-bg); color: var(--text-dark); }
+    .btn-neutral { background: rgba(255,255,255,0.2); color: #fff; }
+    .btn:hover { opacity: 0.85; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: var(--space-lg); }
+    .card:hover { border-color: var(--border-dark); }
+    .ph-img { background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); font-weight: 500; aspect-ratio: 16/9; width: 100%; border-radius: var(--radius); }
+    .ph-img--portrait { aspect-ratio: 3/4; }
+    .ph-img--square { aspect-ratio: 1/1; }
+    .ph-img--landscape { aspect-ratio: 4/3; }
+    .tag { display: inline-block; background: var(--label-bg); color: var(--text-mid); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; border-radius: var(--radius); }
+    .pullquote { border-left: 3px solid var(--border-dark); padding-left: var(--space-md); font-size: 20px; color: var(--text-dark); margin: var(--space-lg) 0; }
+
+    /* 7. RESPONSIVE */
+    @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    @media (max-width: 480px) { h1 { font-size: 28px; } h2 { font-size: 22px; } .section { padding: var(--space-lg) 0; } }
+
+    /* SECTION-SPECIFIC OVERRIDES */
+
+    /* HERO */
+    .hero { background: var(--surface); padding: 72px 0 80px; }
+    .hero-inner { max-width: 800px; width: 100%; margin: 0 auto; }
+    .hero .breadcrumb { font-size: 14px; margin-bottom: 28px; color: var(--text-mid); }
+    .hero .breadcrumb a { color: var(--text-dark); text-decoration: underline; }
+    .hero .breadcrumb a:hover { opacity: 0.7; text-decoration: none; }
+    .hero h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; }
+    .hero .subhead { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; }
+    .hero p { margin-bottom: var(--space-md); }
+
+    /* CALLOUT */
+    .callout { background: var(--surface); padding: 72px 0; }
+    .callout-inner { max-width: 800px; width: 100%; margin: 0 auto; display: flex; gap: 48px; align-items: flex-start; }
+    .callout-text { flex: 1; }
+    .callout-text h2 { font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: var(--space-md); }
+    .callout-text p { margin-bottom: var(--space-md); }
+    .callout-media { background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); width: 280px; height: 220px; flex-shrink: 0; border-radius: var(--radius); }
+
+    @media (max-width: 768px) {
+      .callout-inner { flex-direction: column; }
+      .callout-media { width: 100%; height: 200px; }
+    }
+
+    /* SHARED COMPONENT STYLES */
+
+    :root { --util-bg: #999999; }
+    .util-bar { background: var(--util-bg); padding: 7px 0; }
+    .util-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+    .util-gethelp { display: inline-block; font-size: 12px; font-weight: 600; color: #fff; background: var(--text-dark); border: none; padding: 4px 12px; border-radius: var(--radius); text-decoration: none; }
+    .util-gethelp:hover { opacity: 0.85; text-decoration: none; }
+    .util-phone { background: var(--accent); color: #fff; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: var(--radius); text-decoration: none; }
+    .util-phone:hover { opacity: 0.85; text-decoration: none; }
+    .site-nav { background: var(--dark-bg); position: relative; z-index: 200; }
+    .nav-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo:hover { text-decoration: none; opacity: 1; }
+    .nav-logo-mark { width: 34px; height: 34px; border-radius: 50%; background: #fff; flex-shrink: 0; }
+    .nav-logo-text { font-size: 12px; font-weight: 600; color: #fff; line-height: 1.35; max-width: 160px; }
+    .nav-links { display: flex; align-items: center; gap: 0; }
+    .nav-item { position: relative; }
+    .nav-item > a { display: block; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.9); padding: 6px 9px; white-space: nowrap; text-decoration: underline; }
+    .nav-item > a:hover { opacity: 0.7; text-decoration: none; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; min-width: 200px; background: var(--dark-bg); border: 1px solid rgba(255,255,255,0.1); border-top: 2px solid var(--accent); padding: 6px 0; z-index: 300; }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a { display: block; padding: 7px 16px; font-size: 13px; color: rgba(255,255,255,0.8); text-decoration: none; white-space: nowrap; }
+    .nav-dropdown a:hover { background: rgba(255,255,255,0.06); color: #fff; opacity: 1; text-decoration: none; }
+    .nav-search-btn { background: none; border: none; cursor: pointer; padding: 6px 8px; color: rgba(255,255,255,0.9); line-height: 1; display: flex; align-items: center; margin-left: 4px; }
+    .nav-search-btn:hover { opacity: 0.7; }
+    .crisis { background: var(--dark-bg); padding: 52px 0; text-align: center; }
+    .crisis .section-label { color: rgba(255,255,255,0.8); margin-bottom: 14px; }
+    .crisis h2 { color: #fff; font-size: 22px; margin: 0 auto 12px; line-height: 1.3; }
+    .crisis p { color: #fff; }
+    .crisis-subcopy { font-size: 14px; margin: 0 auto 18px; line-height: 1.7; }
+    .crisis-phone { display: block; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 24px; text-decoration: none; }
+    .crisis .btn-primary { padding: 10px 36px; }
+    .work-cta { background: var(--surface); padding: 52px 0; text-align: center; }
+    .work-cta .section-label { margin-bottom: 16px; }
+    .work-cta h2 { margin-bottom: 14px; }
+    .work-cta p { font-size: 15px; color: var(--text-mid); margin-bottom: 28px; }
+    .footer { background: var(--dark-bg); padding: 52px 0 0; }
+    .footer .container { padding-left: 60px; padding-right: 60px; }
+    .footer p { color: #fff; }
+    .footer-logo-name { display: block; font-size: 13px; font-weight: 600; color: #fff; line-height: 1.35; margin-bottom: 24px; text-decoration: none; }
+    .footer-logo-name:hover { opacity: 0.8; text-decoration: none; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 3fr; gap: 48px; padding-bottom: 32px; align-items: start; }
+    .footer-address { font-size: 13px; line-height: 1.75; color: #fff; margin-bottom: 4px; }
+    .footer-see-locations { display: block; font-size: 12px; color: #fff; text-decoration: underline; margin-bottom: 14px; }
+    .footer-see-locations:hover { opacity: 0.75; text-decoration: none; }
+    .footer-phone { display: block; font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 2px; text-decoration: none; }
+    .footer-phone:hover { opacity: 0.8; text-decoration: none; }
+    .footer-crisis-note { font-size: 12px; color: #fff; margin-bottom: 16px; }
+    .footer-social { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .social-link { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #fff; text-decoration: none; }
+    .social-link:hover { opacity: 0.75; text-decoration: none; }
+    .social-icon { width: 22px; height: 22px; background: rgba(255,255,255,0.15); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+    .footer-newsletter-btn { display: inline-block; font-size: 12px; font-weight: 600; padding: 7px 14px; background: rgba(255,255,255,0.2); border-radius: var(--radius); color: #fff; text-decoration: none; border: none; margin-bottom: 16px; }
+    .footer-newsletter-btn:hover { opacity: 0.85; text-decoration: none; }
+    .footer-bottom-row { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
+    .footer-subsidiary { font-size: 11px; color: #fff; line-height: 1.6; flex: 1; }
+    .footer-link-rows { display: flex; flex-direction: column; margin-bottom: 20px; }
+    .footer-link-row { display: flex; align-items: baseline; padding: 16px 0; }
+    .footer-link-row-head { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; width: 120px; flex-shrink: 0; }
+    .footer-link-row-links { display: flex; flex: 1; justify-content: space-between; }
+    .footer-link-row-links a { font-size: 13px; color: #fff; text-decoration: underline; }
+    .footer-link-row-links a:hover { opacity: 0.75; text-decoration: none; }
+    .footer-badges { display: flex; gap: 15px; align-items: center; }
+    .badge-circle { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.7); }
+    .footer-bar { background: #e8e8e4; padding: 14px 0; }
+    .footer-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-bar-inner p { font-size: 11px; color: var(--text-dark); }
+    .footer-bar-links { display: flex; gap: 20px; }
+    .footer-bar-links a { font-size: 11px; color: var(--text-dark); text-decoration: none; }
+    .footer-bar-links a:hover { opacity: 0.7; text-decoration: none; }
+    .services-section { background: var(--bg); padding: var(--space-xl) 0; text-align: center; }
+    .services-section .section-label { margin-bottom: var(--space-lg); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+    .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 16px; text-align: center; }
+    .service-card:hover { border-color: var(--border-dark); }
+    .service-card h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .service-card p { font-size: 14px; color: var(--text-mid); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="mrcs-header"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="mrcs-wf-home-v5.html">Home</a> / Page
+    </div>
+    <h1>Page Title</h1>
+    <p class="subhead">Sub-title or short description tagline text</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+  </div>
+</div>
+
+<!-- CRISIS -->
+<div id="mrcs-crisis"></div>
+
+<!-- CALLOUT SECTION -->
+<section id="callout" class="callout">
+  <div class="container">
+    <div class="callout-inner">
+      <div class="callout-text">
+        <div class="section-label">CALLOUT SECTION</div>
+        <h2>Callout Section</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="callout-media">Media</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div id="mrcs-services"></div>
+
+<!-- WORK CTA -->
+<div id="mrcs-work-cta"></div>
+
+<!-- FOOTER -->
+<div id="mrcs-footer"></div>
+
+<script src="mrcs-components.js"></script>
+
+</body>
+</html>
+
+<!-- CHANGELOG
+v5 — Complete HTML wireframe with hero, callout section with media placeholder, shared component div slots, and responsive design. Section order: header, hero, crisis, callout, services, work CTA, footer. Hero includes breadcrumb and 5 lorem paragraphs. Callout section is 2-column with 280x220px media placeholder. All component sections (header, crisis, services, work CTA, footer) injected via mrcs-components.js. CSS palette and semantic tokens configured. Responsive breakpoints at 768px and 480px.
+-->

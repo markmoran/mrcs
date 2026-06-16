@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mount Rogers Locations — Wireframe v5</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       BOILERPLATE CSS
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    :root {
+      --bg: #f2f2f0; --surface: #ffffff; --border: #d0d0cc; --border-dark: #b0b0aa;
+      --text-dark: #1a1a1a; --text-mid: #555550; --text-light: #888880;
+      --label-bg: #e4e4e0; --nav-bg: #1e1e1e; --dark-bg: #1e1e1e; --accent: #c0392b; --radius: 3px;
+    }
+    :root {
+      --font-body: 'Inter', Arial, Helvetica, sans-serif;
+      --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 32px; --space-xl: 64px; --space-2xl: 96px;
+      --container-max: 1200px; --container-pad: var(--space-lg);
+    }
+    body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--text-dark); background: var(--bg); }
+    h1 { font-size: clamp(36px, 5vw, 48px); font-weight: 700; line-height: 1.1; }
+    h2 { font-size: clamp(26px, 3vw, 30px); font-weight: 700; line-height: 1.2; }
+    h3 { font-size: clamp(20px, 2.5vw, 22px); font-weight: 600; line-height: 1.3; }
+    h4 { font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; line-height: 1.3; }
+    p { color: var(--text-mid); }
+    small, .meta { font-size: 13px; color: var(--text-light); }
+    a { color: inherit; text-decoration: underline; }
+    a:hover { opacity: 0.75; text-decoration: none; }
+    .section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: var(--space-md); }
+    .section { padding: var(--space-xl) 0; }
+    .section--dark { background: var(--dark-bg); color: #fff; }
+    .section--dark p { color: #fff; }
+    .section--gray { background: var(--bg); }
+    .section--white { background: var(--surface); }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+    .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-lg); }
+    .btn { display: inline-block; padding: 10px 24px; border-radius: var(--radius); font-size: 15px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; transition: all 0.15s ease; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--text-dark); color: #fff; }
+    .btn-ghost { background: var(--label-bg); color: var(--text-dark); }
+    .btn:hover { opacity: 0.85; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: var(--space-lg); }
+    .ph-img { background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); font-weight: 500; aspect-ratio: 16/9; width: 100%; border-radius: var(--radius); }
+    .tag { display: inline-block; background: var(--label-bg); color: var(--text-mid); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; border-radius: var(--radius); }
+    @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { h1 { font-size: 28px; } h2 { font-size: 22px; } }
+
+    /* ============================================================
+       MRCS SHARED COMPONENT CSS
+       ============================================================ */
+    :root { --util-bg: #999999; }
+    .util-bar { background: var(--util-bg); padding: 7px 0; }
+    .util-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+    .util-gethelp { display: inline-block; font-size: 12px; font-weight: 600; color: #fff; background: var(--text-dark); border: none; padding: 4px 12px; border-radius: var(--radius); text-decoration: none; }
+    .util-phone { background: var(--accent); color: #fff; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: var(--radius); text-decoration: none; }
+    .site-nav { background: var(--dark-bg); position: relative; z-index: 200; }
+    .nav-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-mark { width: 34px; height: 34px; border-radius: 50%; background: #fff; flex-shrink: 0; }
+    .nav-logo-text { font-size: 12px; font-weight: 600; color: #fff; line-height: 1.35; max-width: 160px; }
+    .nav-links { display: flex; align-items: center; gap: 0; }
+    .nav-item { position: relative; }
+    .nav-item > a { display: block; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.9); padding: 6px 9px; white-space: nowrap; text-decoration: underline; }
+    .nav-item > a:hover { opacity: 0.7; text-decoration: none; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; min-width: 200px; background: var(--dark-bg); border: 1px solid rgba(255,255,255,0.1); border-top: 2px solid var(--accent); padding: 6px 0; z-index: 300; }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a { display: block; padding: 7px 16px; font-size: 13px; color: rgba(255,255,255,0.8); text-decoration: none; white-space: nowrap; }
+    .nav-search-btn { background: none; border: none; cursor: pointer; padding: 6px 8px; color: rgba(255,255,255,0.9); line-height: 1; display: flex; align-items: center; }
+    .crisis { background: var(--dark-bg); padding: 52px 0; text-align: center; }
+    .crisis .section-label { color: rgba(255,255,255,0.8); margin-bottom: 14px; }
+    .crisis h2 { color: #fff; font-size: 22px; margin: 0 auto 12px; line-height: 1.3; }
+    .crisis p { color: #fff; }
+    .crisis-subcopy { font-size: 14px; margin: 0 auto 18px; line-height: 1.7; }
+    .crisis-phone { display: block; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 24px; text-decoration: none; }
+    .crisis .btn-primary { padding: 10px 36px; }
+    .work-cta { background: var(--surface); padding: 52px 0; text-align: center; }
+    .work-cta h2 { margin-bottom: 14px; }
+    .work-cta p { font-size: 15px; color: var(--text-mid); margin-bottom: 28px; }
+    .footer { background: var(--dark-bg); padding: 52px 0 0; }
+    .footer .container { padding-left: 60px; padding-right: 60px; }
+    .footer p { color: #fff; }
+    .footer-logo-name { display: block; font-size: 13px; font-weight: 600; color: #fff; line-height: 1.35; margin-bottom: 24px; text-decoration: none; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 3fr; gap: 48px; padding-bottom: 32px; align-items: start; }
+    .footer-address { font-size: 13px; line-height: 1.75; color: #fff; margin-bottom: 4px; }
+    .footer-see-locations { display: block; font-size: 12px; color: #fff; text-decoration: underline; margin-bottom: 14px; }
+    .footer-phone { display: block; font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 2px; text-decoration: none; }
+    .footer-crisis-note { font-size: 12px; color: #fff; margin-bottom: 16px; }
+    .footer-social { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .social-link { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #fff; text-decoration: none; }
+    .social-icon { width: 22px; height: 22px; background: rgba(255,255,255,0.15); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+    .footer-newsletter-btn { display: inline-block; font-size: 12px; font-weight: 600; padding: 7px 14px; background: rgba(255,255,255,0.2); border-radius: var(--radius); color: #fff; text-decoration: none; border: none; margin-bottom: 16px; }
+    .footer-bottom-row { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
+    .footer-subsidiary { font-size: 11px; color: #fff; line-height: 1.6; flex: 1; }
+    .footer-link-rows { display: flex; flex-direction: column; margin-bottom: 20px; }
+    .footer-link-row { display: flex; align-items: baseline; padding: 16px 0; }
+    .footer-link-row-head { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; width: 120px; flex-shrink: 0; }
+    .footer-link-row-links { display: flex; flex: 1; justify-content: space-between; }
+    .footer-link-row-links a { font-size: 13px; color: #fff; text-decoration: underline; }
+    .footer-badges { display: flex; gap: 15px; align-items: center; }
+    .badge-circle { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.7); }
+    .footer-bar { background: #e8e8e4; padding: 14px 0; }
+    .footer-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-bar-inner p { font-size: 11px; color: var(--text-dark); }
+    .footer-bar-links { display: flex; gap: 20px; }
+    .footer-bar-links a { font-size: 11px; color: var(--text-dark); text-decoration: none; }
+    .services-section { background: var(--bg); padding: var(--space-xl) 0; text-align: center; }
+    .services-section .section-label { margin-bottom: var(--space-lg); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+    .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 16px; text-align: center; }
+    .service-card h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .service-card p { font-size: 14px; color: var(--text-mid); }
+
+    /* ============================================================
+       LOCATIONS PAGE SECTION-SPECIFIC CSS
+       ============================================================ */
+    .hero { background: var(--surface); padding: 72px 0 80px; }
+    .hero-inner { max-width: 800px; width: 100%; margin: 0 auto; padding: 0 var(--container-pad); }
+    .hero .breadcrumb { font-size: 14px; margin-bottom: 28px; color: var(--text-mid); }
+    .hero .breadcrumb a { color: var(--text-dark); text-decoration: underline; }
+    .hero .breadcrumb a:hover { opacity: 0.7; text-decoration: none; }
+    .hero h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; }
+    .hero .subhead { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; }
+    .hero p { margin-bottom: var(--space-md); }
+
+    .locations-map-section { background: var(--surface); padding: 48px 0 0; }
+    .locations-map-section .container { }
+    .locations-map-section h2 { text-align: center; margin-bottom: 28px; }
+    .map-placeholder { width: 100%; height: 400px; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--text-light); border-radius: var(--radius); }
+
+    .locations-list-section { background: var(--surface); padding: 32px 0 64px; }
+    .loc-filter-row { display: flex; align-items: center; gap: 12px; margin-bottom: 0; flex-wrap: wrap; }
+    .loc-filter-label { font-size: 13px; color: var(--text-mid); font-weight: 500; }
+    .loc-select { height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; color: var(--text-mid); background: var(--surface); min-width: 140px; }
+    .loc-clear { font-size: 13px; color: var(--text-mid); text-decoration: underline; cursor: pointer; }
+    .loc-clear:hover { opacity: 0.75; text-decoration: none; }
+    .loc-count { font-size: 13px; color: var(--text-light); margin: 16px 0 24px; }
+    .location-row { display: flex; gap: 24px; align-items: flex-start; padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .location-row:last-child { border-bottom: none; }
+    .location-info { flex: 1; }
+    .location-info h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .location-info h4 a { color: var(--text-dark); text-decoration: underline; }
+    .location-info h4 a:hover { opacity: 0.75; text-decoration: none; }
+    .location-meta-items { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-bottom: 10px; }
+    .location-meta-item { font-size: 13px; color: var(--text-mid); display: flex; align-items: center; gap: 5px; }
+    .loc-icon { font-size: 11px; color: var(--text-light); font-weight: 700; border: 1px solid var(--border); padding: 1px 4px; border-radius: 2px; }
+    .location-services { font-size: 13px; color: var(--text-mid); }
+    .location-img { width: 160px; height: 120px; background: var(--label-bg); border-radius: var(--radius); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-light); }
+    .loc-pagination { display: flex; justify-content: center; gap: 6px; margin-top: 36px; }
+    .loc-pagination a, .loc-pagination span { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-dark); text-decoration: none; }
+    .loc-pagination span.active { background: var(--text-dark); color: #fff; border-color: var(--text-dark); font-weight: 700; }
+    .loc-pagination a:hover { border-color: var(--border-dark); opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="mrcs-header"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="breadcrumb">
+        <a href="mrcs-wf-home-v5.html">Home</a> / Locations
+      </div>
+      <h1>Mount Rogers Locations</h1>
+      <p class="subhead">Right where you need us to be</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section class="locations-map-section">
+    <div class="container">
+      <h2>Find your nearest Mount Rogers location</h2>
+      <div class="map-placeholder">Map — Locations</div>
+    </div>
+  </section>
+
+  <!-- FILTER & LIST SECTION -->
+  <section class="locations-list-section">
+    <div class="container">
+      <div class="loc-filter-row">
+        <span class="loc-filter-label">Filter by:</span>
+        <select class="loc-select" aria-label="Filter by City">
+          <option>City</option>
+          <option>Marion</option>
+          <option>Galax</option>
+          <option>Wytheville</option>
+          <option>Hillsville</option>
+          <option>Independence</option>
+        </select>
+        <select class="loc-select" aria-label="Filter by Services">
+          <option>Services</option>
+          <option>Counseling</option>
+          <option>Crisis Support</option>
+          <option>Community Programs</option>
+        </select>
+        <span class="loc-clear">Clear all fields</span>
+      </div>
+      <p class="loc-count">Showing 10 of 27 Locations</p>
+
+      <!-- Location Rows -->
+      <div class="location-row">
+        <div class="location-info">
+          <h4><a href="#">Marion Office</a></h4>
+          <div class="location-meta-items">
+            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 123 Your Address Drive, Marion, Virginia, 24354</div>
+            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 783-4636</div>
+            <div class="location-meta-item"><span class="loc-icon">[email]</span> info@mountrogers.org</div>
+            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 8:00 AM – 5:00 PM</div>
+          </div>
+          <p class="location-services"><strong>Services:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim.</p>
+        </div>
+        <div class="location-img">Image</div>
+      </div>
+
+      <div class="location-row">
+        <div class="location-info">
+          <h4><a href="#">Galax Office</a></h4>
+          <div class="location-meta-items">
+            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 456 Community Plaza, Galax, Virginia, 24333</div>
+            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 236-3456</div>
+            <div class="location-meta-item"><span class="loc-icon">[email]</span> galax@mountrogers.org</div>
+            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 8:30 AM – 5:30 PM</div>
+          </div>
+          <p class="location-services"><strong>Services:</strong> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; donec vel turpis.</p>
+        </div>
+        <div class="location-img">Image</div>
+      </div>
+
+      <div class="location-row">
+        <div class="location-info">
+          <h4><a href="#">Wytheville Office</a></h4>
+          <div class="location-meta-items">
+            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 789 Main Street, Wytheville, Virginia, 24382</div>
+            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 228-5678</div>
+            <div class="location-meta-item"><span class="loc-icon">[email]</span> wytheville@mountrogers.org</div>
+            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 9:00 AM – 5:00 PM</div>
+          </div>
+          <p class="location-services"><strong>Services:</strong> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+        </div>
+        <div class="location-img">Image</div>
+      </div>
+
+      <div class="location-row">
+        <div class="location-info">
+          <h4><a href="#">Hillsville Office</a></h4>
+          <div class="location-meta-items">
+            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 321 Community Drive, Hillsville, Virginia, 24343</div>
+            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 728-9012</div>
+            <div class="location-meta-item"><span class="loc-icon">[email]</span> hillsville@mountrogers.org</div>
+            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 8:00 AM – 5:00 PM</div>
+          </div>
+          <p class="location-services"><strong>Services:</strong> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
+        </div>
+        <div class="location-img">Image</div>
+      </div>
+
+      <div class="location-row">
+        <div class="location-info">
+          <h4><a href="#">Independence Office</a></h4>
+          <div class="location-meta-items">
+            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 654 Service Road, Independence, Virginia, 24348</div>
+            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 773-3456</div>
+            <div class="location-meta-item"><span class="loc-icon">[email]</span> independence@mountrogers.org</div>
+            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 8:00 AM – 4:30 PM</div>
+          </div>
+          <p class="location-services"><strong>Services:</strong> Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+        </div>
+        <div class="location-img">Image</div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="loc-pagination">
+        <span class="active">1</span>
+        <a href="#">2</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRISIS -->
+  <div id="mrcs-crisis"></div>
+
+  <!-- SERVICES -->
+  <div id="mrcs-services"></div>
+
+  <!-- WORK CTA -->
+  <div id="mrcs-work-cta"></div>
+
+  <!-- FOOTER -->
+  <div id="mrcs-footer"></div>
+
+  <script src="mrcs-components.js"></script>
+</body>
+</html>
+
+<!-- CHANGELOG
+v5:
+- New file: Locations directory page
+- Hero: H1 + "Right where you need us to be" subhead + body paragraphs
+- Map section: centered H2 + 400px full-width map placeholder
+- Filter row: City + Services selects + Clear all fields link
+- Location list: 5 rows with address/phone/email/hours icons + 160×120 image placeholders + pagination
+-->

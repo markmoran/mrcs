@@ -48,11 +48,11 @@
           </div>
 
           <div class="nav-item">
-            <a href="mrcs-wf-services-v5.html">Services &#9662;</a>
+            <a href="mrcs-wf-services-v5.html">Get Help &#9662;</a>
             <div class="nav-dropdown">
               <a href="#">Crisis Management</a>
               <a href="#">Counseling &amp; Psychiatry</a>
-              <a href="#">Wellness &amp; Community Engagement</a>
+              <a href="mrcs-wf-wellness-v5.html">Wellness &amp; Community Engagement</a>
               <a href="#">Developmental Disability</a>
               <a href="#">Residential</a>
               <a href="#">Case Management</a>
@@ -74,8 +74,8 @@
             <a href="mrcs-wf-about-v5.html">About &#9662;</a>
             <div class="nav-dropdown">
               <a href="#">Mission &amp; Story</a>
-              <a href="#">Board &amp; CEO</a>
-              <a href="#">Locations</a>
+              <a href="mrcs-wf-board-v5.html">Board &amp; CEO</a>
+              <a href="mrcs-wf-locations-v5.html">Locations</a>
               <a href="#">Your Rights</a>
               <a href="#">FOIA Requests</a>
               <a href="#">Privacy Statement</a>
@@ -85,8 +85,8 @@
           <div class="nav-item">
             <a href="mrcs-wf-news-events-v5.html">News &amp; Events &#9662;</a>
             <div class="nav-dropdown">
-              <a href="#">News / Articles Archive</a>
-              <a href="#">Events Listing</a>
+              <a href="mrcs-wf-news-v5.html">News / Articles Archive</a>
+              <a href="mrcs-wf-events-v5.html">Events Listing</a>
               <a href="#">Procurement Opportunities</a>
             </div>
           </div>
@@ -103,8 +103,8 @@
           <div class="nav-item">
             <a href="mrcs-wf-contact-v5.html">Contact &#9662;</a>
             <div class="nav-dropdown">
-              <a href="#">FAQ</a>
-              <a href="#">Records Request</a>
+              <a href="mrcs-wf-faq-v5.html">FAQ</a>
+              <a href="mrcs-wf-records-request-v5.html">Records Request</a>
             </div>
           </div>
 

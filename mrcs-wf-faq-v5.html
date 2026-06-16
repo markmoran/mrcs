@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Mount Rogers Community Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    :root {
+      --bg: #f2f2f0; --surface: #ffffff; --border: #d0d0cc; --border-dark: #b0b0aa;
+      --text-dark: #1a1a1a; --text-mid: #555550; --text-light: #888880;
+      --label-bg: #e4e4e0; --nav-bg: #1e1e1e; --dark-bg: #1e1e1e; --accent: #c0392b; --radius: 3px;
+      --font-body: 'Inter', Arial, Helvetica, sans-serif;
+      --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 32px; --space-xl: 64px; --space-2xl: 96px;
+      --container-max: 1200px; --container-pad: var(--space-lg);
+    }
+    body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--text-dark); background: var(--bg); }
+    h1 { font-size: clamp(36px, 5vw, 48px); font-weight: 700; line-height: 1.1; }
+    h2 { font-size: clamp(26px, 3vw, 30px); font-weight: 700; line-height: 1.2; }
+    h3 { font-size: clamp(20px, 2.5vw, 22px); font-weight: 600; line-height: 1.3; }
+    h4 { font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; line-height: 1.3; }
+    p { color: var(--text-mid); }
+    a { color: inherit; text-decoration: underline; }
+    a:hover { opacity: 0.75; text-decoration: none; }
+    .section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: var(--space-md); }
+    .section { padding: var(--space-xl) 0; }
+    .section--dark { background: var(--dark-bg); color: #fff; }
+    .section--dark p { color: #fff; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
+    .btn { display: inline-block; padding: 10px 24px; border-radius: var(--radius); font-size: 15px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; transition: all 0.15s ease; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--text-dark); color: #fff; }
+    .btn:hover { opacity: 0.85; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: var(--space-lg); }
+    :root { --util-bg: #999999; }
+    .util-bar { background: var(--util-bg); padding: 7px 0; }
+    .util-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+    .util-gethelp { display: inline-block; font-size: 12px; font-weight: 600; color: #fff; background: var(--text-dark); border: none; padding: 4px 12px; border-radius: var(--radius); text-decoration: none; }
+    .util-phone { background: var(--accent); color: #fff; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: var(--radius); text-decoration: none; }
+    .site-nav { background: var(--dark-bg); position: relative; z-index: 200; }
+    .nav-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-mark { width: 34px; height: 34px; border-radius: 50%; background: #fff; flex-shrink: 0; }
+    .nav-logo-text { font-size: 12px; font-weight: 600; color: #fff; line-height: 1.35; max-width: 160px; }
+    .nav-links { display: flex; align-items: center; gap: 0; }
+    .nav-item { position: relative; }
+    .nav-item > a { display: block; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.9); padding: 6px 9px; white-space: nowrap; text-decoration: underline; }
+    .nav-item > a:hover { opacity: 0.7; text-decoration: none; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; min-width: 200px; background: var(--dark-bg); border: 1px solid rgba(255,255,255,0.1); border-top: 2px solid var(--accent); padding: 6px 0; z-index: 300; }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a { display: block; padding: 7px 16px; font-size: 13px; color: rgba(255,255,255,0.8); text-decoration: none; white-space: nowrap; }
+    .nav-search-btn { background: none; border: none; cursor: pointer; padding: 6px 8px; color: rgba(255,255,255,0.9); line-height: 1; display: flex; align-items: center; }
+    .crisis { background: var(--dark-bg); padding: 52px 0; text-align: center; }
+    .crisis .section-label { color: rgba(255,255,255,0.8); margin-bottom: 14px; }
+    .crisis h2 { color: #fff; font-size: 22px; margin: 0 auto 12px; line-height: 1.3; }
+    .crisis p { color: #fff; }
+    .crisis-subcopy { font-size: 14px; margin: 0 auto 18px; line-height: 1.7; }
+    .crisis-phone { display: block; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 24px; text-decoration: none; }
+    .crisis .btn-primary { padding: 10px 36px; }
+    .work-cta { background: var(--surface); padding: 52px 0; text-align: center; }
+    .work-cta h2 { margin-bottom: 14px; }
+    .work-cta p { font-size: 15px; color: var(--text-mid); margin-bottom: 28px; }
+    .footer { background: var(--dark-bg); padding: 52px 0 0; }
+    .footer .container { padding-left: 60px; padding-right: 60px; }
+    .footer p { color: #fff; }
+    .footer-logo-name { display: block; font-size: 13px; font-weight: 600; color: #fff; line-height: 1.35; margin-bottom: 24px; text-decoration: none; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 3fr; gap: 48px; padding-bottom: 32px; align-items: start; }
+    .footer-address { font-size: 13px; line-height: 1.75; color: #fff; margin-bottom: 4px; }
+    .footer-see-locations { display: block; font-size: 12px; color: #fff; text-decoration: underline; margin-bottom: 14px; }
+    .footer-phone { display: block; font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 2px; text-decoration: none; }
+    .footer-crisis-note { font-size: 12px; color: #fff; margin-bottom: 16px; }
+    .footer-social { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .social-link { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #fff; text-decoration: none; }
+    .social-icon { width: 22px; height: 22px; background: rgba(255,255,255,0.15); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+    .footer-newsletter-btn { display: inline-block; font-size: 12px; font-weight: 600; padding: 7px 14px; background: rgba(255,255,255,0.2); border-radius: var(--radius); color: #fff; text-decoration: none; border: none; margin-bottom: 16px; }
+    .footer-bottom-row { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
+    .footer-subsidiary { font-size: 11px; color: #fff; line-height: 1.6; flex: 1; }
+    .footer-link-rows { display: flex; flex-direction: column; margin-bottom: 20px; }
+    .footer-link-row { display: flex; align-items: baseline; padding: 16px 0; }
+    .footer-link-row-head { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; width: 120px; flex-shrink: 0; }
+    .footer-link-row-links { display: flex; flex: 1; justify-content: space-between; }
+    .footer-link-row-links a { font-size: 13px; color: #fff; text-decoration: underline; }
+    .footer-badges { display: flex; gap: 15px; align-items: center; }
+    .badge-circle { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.7); }
+    .footer-bar { background: #e8e8e4; padding: 14px 0; }
+    .footer-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-bar-inner p { font-size: 11px; color: var(--text-dark); }
+    .footer-bar-links { display: flex; gap: 20px; }
+    .footer-bar-links a { font-size: 11px; color: var(--text-dark); text-decoration: none; }
+    .services-section { background: var(--bg); padding: var(--space-xl) 0; text-align: center; }
+    .services-section .section-label { margin-bottom: var(--space-lg); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+    .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 16px; text-align: center; }
+    .service-card h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .service-card p { font-size: 14px; color: var(--text-mid); }
+
+    /* Hero Section */
+    .hero { background: var(--surface); padding: 72px 0 80px; }
+    .hero-inner { max-width: 800px; width: 100%; margin: 0 auto; padding: 0 var(--container-pad); }
+    .hero .breadcrumb { font-size: 14px; margin-bottom: 28px; color: var(--text-mid); }
+    .hero .breadcrumb a { color: var(--text-dark); text-decoration: underline; }
+    .hero h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; }
+    .hero p { color: var(--text-mid); font-size: 17px; }
+
+    /* FAQ Content Section */
+    .faq-content { background: var(--surface); padding: 0 0 64px; }
+    .faq-inner { max-width: 800px; width: 100%; margin: 0 auto; padding: 0 var(--container-pad); }
+    .faq-group-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--text-light); text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 48px 0 0; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; cursor: pointer; font-size: 15px; color: var(--text-dark); font-weight: 400; }
+    .faq-toggle { font-size: 20px; color: var(--text-light); flex-shrink: 0; line-height: 1; margin-left: 16px; }
+    .faq-answer { background: var(--bg); padding: 16px 20px; margin-bottom: 8px; }
+    .faq-answer p { font-size: 14px; color: var(--text-mid); margin-bottom: 10px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+
+    /* Still Have Questions Section */
+    .still-questions { background: var(--bg); padding: 52px 0; text-align: center; }
+    .still-questions .faq-inner { padding: 0 var(--container-pad); }
+    .still-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: 10px; }
+    .still-questions p:not(.still-label) { font-size: 16px; color: var(--text-mid); margin-bottom: 28px; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="mrcs-header"></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="breadcrumb">
+        <a href="mrcs-wf-home-v5.html">Home</a> / Frequently Asked Questions
+      </div>
+      <h1>Frequently Asked Questions</h1>
+      <p>Find answers to common questions about our services, programs, and how to get started.</p>
+    </div>
+  </div>
+
+  <!-- FAQ CONTENT -->
+  <div class="faq-content">
+    <div class="faq-inner">
+
+      <!-- GROUP 1: General Questions and Answers -->
+      <h3 class="faq-group-label">General Questions and Answers</h3>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <!-- GROUP 2: Topic-Specific Questions and Answers -->
+      <h3 class="faq-group-label">Topic-Specific Questions and Answers</h3>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <!-- EXPANDED ITEM -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do I request my medical records?</span>
+          <span class="faq-toggle">−</span>
+        </div>
+        <div class="faq-answer">
+          <p>To request your medical records, contact our records department at the main office during business hours. We accept requests in person, by phone, or via our online request form. There is no charge for standard copies, and we typically process requests within 5 to 10 business days. All requests must include your full name, date of birth, and the specific records you need.</p>
+          <p>For expedited requests or records dating back more than seven years, there may be additional processing time. If you have any questions about your records or need assistance with the request process, our staff is happy to help guide you through each step.</p>
+        </div>
+      </div>
+
+      <!-- GROUP 3: Topic-Specific Questions and Answers -->
+      <h3 class="faq-group-label">Topic-Specific Questions and Answers</h3>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>This is a question for the FAQ?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+      </div>
+
+      <!-- EXPANDED ITEM -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do I request my medical records?</span>
+          <span class="faq-toggle">−</span>
+        </div>
+        <div class="faq-answer">
+          <p>To request your medical records, contact our records department at the main office during business hours. We accept requests in person, by phone, or via our online request form. There is no charge for standard copies, and we typically process requests within 5 to 10 business days. All requests must include your full name, date of birth, and the specific records you need.</p>
+          <p>For expedited requests or records dating back more than seven years, there may be additional processing time. If you have any questions about your records or need assistance with the request process, our staff is happy to help guide you through each step.</p>
+          <p>You can also schedule an appointment with our records specialist to discuss your request in detail. We maintain strict confidentiality and comply with all federal and state privacy regulations to protect your personal health information.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STILL HAVE QUESTIONS CALLOUT -->
+  <div class="still-questions">
+    <div class="faq-inner">
+      <p class="still-label">Still Have Questions?</p>
+      <p>Our team is here to help. Reach out and we'll get back to you as soon as possible.</p>
+      <a href="mrcs-wf-contact-v5.html" class="btn btn-secondary">Contact Us →</a>
+    </div>
+  </div>
+
+  <!-- CRISIS -->
+  <div id="mrcs-crisis"></div>
+
+  <!-- SERVICES -->
+  <div id="mrcs-services"></div>
+
+  <!-- WORK CTA -->
+  <div id="mrcs-work-cta"></div>
+
+  <!-- FOOTER -->
+  <div id="mrcs-footer"></div>
+
+  <script src="mrcs-components.js"></script>
+</body>
+</html>
+
+<!-- CHANGELOG
+v5:
+- New file: Standalone FAQ page
+- Hero: H1 + intro paragraph, max-width 800px
+- 3 accordion groups with group labels, 4–5 items each, 2 statically expanded
+- Still Have Questions callout: gray bg, centered, Contact Us button
+-->
