@@ -3,7 +3,6 @@
 *.local
 .vercel
 
-# Source wireframe files (deployed versions live in wf/)
+# Legacy source wireframes (superseded by mrcs-wf-* files)
 mrcs-wireframe-*.html
-mrcs-components.js
 temp-check/
