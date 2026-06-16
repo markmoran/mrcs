@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mount Rogers Community Services — Get Help Wireframe v5</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    /* === 1. RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    ul { list-style: none; }
+
+    /* === 2. PALETTE === */
+    :root {
+      --bg:          #f2f2f0;
+      --surface:     #ffffff;
+      --border:      #d0d0cc;
+      --border-dark: #b0b0aa;
+      --text-dark:   #1a1a1a;
+      --text-mid:    #555550;
+      --text-light:  #888880;
+      --label-bg:    #e4e4e0;
+      --dark-bg:     #1e1e1e;
+      --accent:      #c0392b;
+      --radius:      3px;
+      --util-bg:     #c8c8c4;
+      --container-max: 1200px;
+      --container-pad: 32px;
+    }
+
+    /* === 3. TRANSFER TOKENS === */
+    :root {
+      --color-primary:   var(--accent);
+      --color-bg:        var(--bg);
+      --color-surface:   var(--surface);
+      --color-text:      var(--text-dark);
+      --color-nav-bg:    var(--dark-bg);
+      --font-body:       'Inter', Arial, Helvetica, sans-serif;
+      --font-heading:    'Inter', Arial, Helvetica, sans-serif;
+      --space-xs:  4px;
+      --space-sm:  8px;
+      --space-md:  16px;
+      --space-lg:  32px;
+      --space-xl:  64px;
+      --container-max: 1200px;
+      --container-pad: 32px;
+    }
+
+    /* === 4. BASE === */
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--bg);
+    }
+    h1 { font-size: 42px; font-weight: 700; line-height: 1.1; color: var(--text-dark); }
+    h2 { font-size: 26px; font-weight: 700; line-height: 1.2; color: var(--text-dark); }
+    h3 { font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--text-dark); }
+    h4 { font-size: 15px; font-weight: 600; line-height: 1.35; color: var(--text-dark); }
+    p  { color: var(--text-mid); }
+
+    a { color: inherit; text-decoration: underline; transition: opacity 0.15s ease; }
+    a:hover { opacity: 0.75; text-decoration: none; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    /* === 5. LAYOUT === */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--container-pad);
+    }
+
+    /* === 6. COMPONENTS === */
+
+    .btn {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: opacity 0.15s ease;
+      border: none;
+      line-height: 1;
+      text-decoration: none;
+    }
+    .btn:hover { opacity: 0.85; text-decoration: none; }
+    .btn-primary   { background: var(--accent);    color: #fff; }
+    .btn-secondary { background: var(--text-dark); color: #fff; }
+
+
+    /* =============================================
+       UTILITY BAR
+    ============================================= */
+    .util-bar { background: var(--util-bg); padding: 7px 0; }
+    .util-bar-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--container-pad);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+    }
+    .util-gethelp {
+      display: inline-block;
+      font-size: 12px; font-weight: 600;
+      color: #fff; background: var(--text-dark);
+      border: none; padding: 4px 12px;
+      border-radius: var(--radius); text-decoration: none;
+    }
+    .util-gethelp:hover { opacity: 0.85; text-decoration: none; }
+    .util-phone {
+      background: var(--accent); color: #fff;
+      font-size: 12px; font-weight: 500;
+      padding: 4px 12px; border-radius: var(--radius); text-decoration: none;
+    }
+    .util-phone:hover { opacity: 0.85; text-decoration: none; }
+
+
+    /* =============================================
+       NAV + DROPDOWNS
+    ============================================= */
+    .site-nav { background: var(--dark-bg); position: relative; z-index: 200; }
+    .nav-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--container-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo:hover { text-decoration: none; opacity: 1; }
+    .nav-logo-mark { width: 34px; height: 34px; border-radius: 50%; background: #ffffff; flex-shrink: 0; }
+    .nav-logo-text { font-size: 12px; font-weight: 600; color: #fff; line-height: 1.35; max-width: 160px; }
+    .nav-links { display: flex; align-items: center; gap: 0; }
+
+    .nav-item { position: relative; }
+    .nav-item > a {
+      display: block;
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      padding: 6px 9px;
+      white-space: nowrap;
+      text-decoration: underline;
+    }
+    .nav-item > a:hover { opacity: 0.7; text-decoration: none; }
+
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: var(--dark-bg);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-top: 2px solid var(--accent);
+      padding: 6px 0;
+      z-index: 300;
+    }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a {
+      display: block;
+      padding: 7px 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-dropdown a:hover { background: rgba(255,255,255,0.06); color: #fff; opacity: 1; text-decoration: none; }
+
+    .nav-search-btn {
+      background: none; border: none; cursor: pointer;
+      padding: 6px 8px; color: rgba(255,255,255,0.9);
+      line-height: 1; display: flex; align-items: center; margin-left: 4px;
+    }
+    .nav-search-btn:hover { opacity: 0.7; }
+
+
+    /* =============================================
+       PAGE HEADER
+       White bg. Breadcrumb above H1. Body text
+       spans full container width (no per-element
+       max-width). Multiple placeholder paragraphs.
+    ============================================= */
+    .page-header { background: var(--surface); padding: 72px 0 80px; }
+    .page-header-inner { max-width: 800px; width: 100%; margin: 0 auto; }
+    .breadcrumb { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
+    .breadcrumb a { color: var(--text-mid); text-decoration: underline; }
+    .breadcrumb a:hover { opacity: 0.75; text-decoration: none; }
+    .breadcrumb span { color: var(--text-light); }
+    .page-header h1 { margin-bottom: 28px; }
+    .page-header p { font-size: 16px; color: var(--text-mid); margin-bottom: 16px; }
+    .page-header p:last-child { margin-bottom: 0; }
+
+
+    /* =============================================
+       SERVICES GRID
+       4-col × 2-row (8 cards). Cards: white bg,
+       border, flex-column, content top / link bottom.
+       Equal height via align-items: stretch + min-height.
+    ============================================= */
+    .services { background: var(--bg); padding: 52px 0; }
+    .services .section-label { text-align: center; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+    .service-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 20px; text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+      transition: border-color 0.15s ease;
+    }
+    .service-card:hover { border-color: var(--border-dark); }
+    .service-card-body { flex: 1; }
+    .service-card h4 { margin-bottom: 8px; }
+    .service-card .service-desc { font-size: 13px; color: var(--text-light); margin-bottom: 10px; }
+    .service-card .service-body { font-size: 13px; color: var(--text-light); margin-bottom: 0; }
+    .service-card .card-link {
+      font-size: 12px; font-weight: 500; color: var(--text-mid);
+      text-decoration: underline; display: block; margin-top: 14px;
+    }
+    .service-card .card-link:hover { color: var(--text-dark); text-decoration: none; }
+
+
+    /* =============================================
+       BEHAVIORAL HEALTH CONTENT
+       White bg. 2-col: text 3fr, image 2fr.
+       No max-width on headings or paragraphs.
+       Image placeholder: --label-bg, 4:3 ratio.
+    ============================================= */
+    .behavioral-health { background: var(--surface); padding: 64px 0; }
+    .behavioral-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .behavioral-health h2 { margin-bottom: 20px; }
+    .behavioral-health p { margin-bottom: 16px; }
+    .behavioral-health p:last-child { margin-bottom: 0; }
+    .bh-media {
+      background: var(--label-bg); border: 1px solid var(--border);
+      border-radius: var(--radius);
+      aspect-ratio: 16 / 9;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: var(--text-light);
+    }
+
+
+    /* =============================================
+       TESTIMONIAL / FROM OUR COMMUNITY
+       Light gray bg. Centered layout. Section label
+       in --text-light (light section — NOT near-white).
+       Pull quote + name + title.
+    ============================================= */
+    .testimonial { background: var(--bg); padding: 64px 0; text-align: center; }
+    .testimonial .container { max-width: 760px; }
+    .testimonial .section-label { margin-bottom: 24px; }
+    .quote-text {
+      font-size: 20px; line-height: 1.65; color: var(--text-dark);
+      margin-bottom: 28px;
+    }
+    .quote-attr { font-size: 15px; font-weight: 600; color: var(--text-dark); display: block; }
+    .quote-title { font-size: 13px; color: var(--text-light); margin-top: 4px; }
+
+
+    /* =============================================
+       CRISIS BANNER
+       Dark bg. Centered. Section label near-white
+       (rgba NOT --text-light — it's a dark section).
+       All text #fff — no rgba on body copy.
+       Phone extra large bold. Accent CTA button.
+    ============================================= */
+    .crisis { background: var(--dark-bg); padding: 56px 0; text-align: center; }
+    .crisis .section-label { color: rgba(255,255,255,0.8); margin-bottom: 14px; }
+    .crisis h2 { color: #fff; font-size: 22px; margin: 0 auto 12px; line-height: 1.3; }
+    .crisis p  { color: #fff; }
+    .crisis-subcopy { font-size: 14px; margin: 0 auto 18px; line-height: 1.7; }
+    .crisis-phone {
+      display: block; font-size: 32px; font-weight: 700; color: #fff;
+      margin-bottom: 28px; text-decoration: none; letter-spacing: 0.02em;
+    }
+    .crisis .btn-primary { padding: 10px 36px; }
+
+
+    /* =============================================
+       WORK AT MOUNT ROGERS CTA
+       White bg. Centered heading + body + button.
+       Section label in --text-light (light section).
+    ============================================= */
+    .work-cta { background: var(--surface); padding: 52px 0; text-align: center; }
+    .work-cta .section-label { margin-bottom: 16px; }
+    .work-cta h2 { margin-bottom: 14px; }
+    .work-cta p  { font-size: 15px; color: var(--text-mid); margin-bottom: 28px; }
+
+
+    /* =============================================
+       FOOTER
+       Dark bg. 25/75 column split.
+       Logo: text only (no circle).
+       All body text #fff — never rgba opacity on copy.
+       Social: icon box + text label.
+       Newsletter: solid gray-white fill.
+       Link rows: 3 rows, justified, underlined, no dividers.
+       Below rows: subsidiary text + 5 badge circles (same row).
+       Copyright bar: light gray bg, dark text.
+    ============================================= */
+    .footer { background: var(--dark-bg); padding: 52px 0 0; }
+    .footer .container { padding-left: 60px; padding-right: 60px; }
+    .footer p { color: #fff; }
+
+    .footer-logo-name {
+      display: block; font-size: 13px; font-weight: 600; color: #fff;
+      line-height: 1.35; margin-bottom: 24px; text-decoration: none;
+    }
+    .footer-logo-name:hover { opacity: 0.8; text-decoration: none; }
+
+    .footer-grid {
+      display: grid; grid-template-columns: 1fr 3fr;
+      gap: 48px; padding-bottom: 32px; align-items: start;
+    }
+
+    .footer-address { font-size: 13px; line-height: 1.75; color: #fff; margin-bottom: 4px; }
+    .footer-see-locations {
+      display: block; font-size: 12px; color: #fff;
+      text-decoration: underline; margin-bottom: 14px;
+    }
+    .footer-see-locations:hover { opacity: 0.75; text-decoration: none; }
+    .footer-phone { display: block; font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 2px; text-decoration: none; }
+    .footer-phone:hover { opacity: 0.8; text-decoration: none; }
+    .footer-crisis-note { font-size: 12px; color: #fff; margin-bottom: 16px; }
+
+    .footer-social { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .social-link { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #fff; text-decoration: none; }
+    .social-link:hover { opacity: 0.75; text-decoration: none; }
+    .social-icon {
+      width: 22px; height: 22px; background: rgba(255,255,255,0.15);
+      border-radius: 3px; display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; flex-shrink: 0;
+    }
+
+    .footer-newsletter-btn {
+      display: inline-block; font-size: 12px; font-weight: 600; padding: 7px 14px;
+      background: rgba(255,255,255,0.2); border-radius: var(--radius);
+      color: #fff; text-decoration: none; border: none; margin-bottom: 16px;
+    }
+    .footer-newsletter-btn:hover { opacity: 0.85; text-decoration: none; }
+
+    .footer-bottom-row { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
+    .footer-subsidiary { font-size: 11px; color: #fff; line-height: 1.6; flex: 1; }
+
+    .footer-link-rows { display: flex; flex-direction: column; margin-bottom: 20px; }
+    .footer-link-row { display: flex; align-items: baseline; padding: 16px 0; }
+    .footer-link-row-head {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff; width: 120px; flex-shrink: 0;
+    }
+    .footer-link-row-links { display: flex; flex: 1; justify-content: space-between; }
+    .footer-link-row-links a { font-size: 13px; color: #fff; text-decoration: underline; }
+    .footer-link-row-links a:hover { opacity: 0.75; text-decoration: none; }
+
+    .footer-badges { display: flex; gap: 15px; align-items: center; }
+    .badge-circle {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .footer-bar { background: #e8e8e4; padding: 14px 0; }
+    .footer-bar-inner {
+      max-width: var(--container-max); margin: 0 auto;
+      padding: 0 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-bar-inner p { font-size: 11px; color: var(--text-dark); }
+    .footer-bar-links { display: flex; gap: 20px; }
+    .footer-bar-links a { font-size: 11px; color: var(--text-dark); text-decoration: none; }
+    .footer-bar-links a:hover { opacity: 0.7; text-decoration: none; }
+
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      h1 { font-size: 30px; }
+      .behavioral-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .footer .container, .footer-bar-inner { padding-left: 24px; padding-right: 24px; }
+    }
+    @media (max-width: 480px) {
+      :root { --container-pad: 16px; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- SHARED: utility bar + nav injected by mrcs-components.js -->
+  <div id="mrcs-header"></div>
+
+  <!-- PAGE HEADER -->
+  <section id="page-header" class="page-header">
+    <div class="container">
+      <div class="page-header-inner">
+        <div class="breadcrumb">
+          <a href="mrcs-wf-home-v5.html">Home</a>
+          &nbsp;/&nbsp;
+          <span>Get Help</span>
+        </div>
+        <h1>Get Help</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis ante. Praesent placer at nibh non justo tempus volutpat. Sed ornare turpis sit amet aliquet malesuada. Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+        <p>Maecenas augue, augue at vitae rhoncus lorem, vitae feugiat justo mi, in posuere est nibh. Sed ut erat diam condimentum molestie sed tortor. Donec imperdiet molestie sed tortor. Donec imperdiet risus vel ipsum venenatis, at commodo nulla finibus. Quisque laoreet nisl ut libero porttitor, in faucibus diam pretium.</p>
+        <p>Aliquam erat volutpat. Nulla facilisi. Integer vulputate lorem id velit dignissim ultrices. Curabitur pulvinar in ante vitae imperdiet. Nam pharetra nibh ut laoreet libero leo aliquet. Fusce a turpis ante. Maecenas augue, augue at vitae rhoncus lorem, vitae feugiat justo mi, in posuere est nibh.</p>
+        <p>Maecenas augue, augue at vitae rhoncus lorem, vitae feugiat justo mi, in posuere est nibh. Sed ornare turpis sit amet aliquet malesuada. Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis ante praesent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES — FIRST GRID -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-label">Services</div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card-body">
+            <h4>Crisis Management</h4>
+            <p class="service-desc">Locations, phone numbers &amp; hours for all crisis sites.</p>
+            <p class="service-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          </div>
+          <a href="#" class="card-link">Learn more about Crisis Management &rarr;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-card-body">
+            <h4>Counseling &amp; Psychiatry</h4>
+            <p class="service-desc">Outpatient mental health &amp; psychiatric services.</p>
+            <p class="service-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          </div>
+          <a href="#" class="card-link">Learn more about Counseling &amp; Psychiatry &rarr;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-card-body">
+            <h4>Wellness &amp; Community Engagement</h4>
+            <p class="service-desc">Community engagement and wellness programs.</p>
+            <p class="service-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          </div>
+          <a href="#" class="card-link">Learn more about Wellness &amp; Community Engagement &rarr;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-card-body">
+            <h4>Developmental Disability</h4>
+            <p class="service-desc">Support for individuals &amp; families.</p>
+            <p class="service-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          </div>
+          <a href="#" class="card-link">Learn more about Developmental Disability &rarr;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-card-body">
+            <h4>Residential</h4>
+            <p class="service-desc">Supervised residential living programs.</p>
+            <p class="service-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          </div>
+          <a href="#" class="card-link">Learn more about Residential Living Programs &rarr;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-card-body">
+            <h4>Case Management</h4>
+            <p class="service-desc">Coordinated care &amp; community support.</p>
+            <p class="service-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          </div>
+          <a href="#" class="card-link">Learn more about Case Management &rarr;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-card-body">
+            <h4>Community-Based</h4>
+            <p class="service-desc">In-home and community support services.</p>
+            <p class="service-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          </div>
+          <a href="#" class="card-link">Learn more about community-Based services &rarr;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-card-body">
+            <h4>Employment Support Services</h4>
+            <p class="service-desc">Competitive, enriching employment opportunities.</p>
+            <p class="service-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          </div>
+          <a href="#" class="card-link">Learn more about Employment Support Services &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEHAVIORAL HEALTH CONTENT -->
+  <section id="behavioral-health" class="behavioral-health">
+    <div class="container">
+      <div class="behavioral-grid">
+        <div>
+          <h2>What is Behavioral Health?</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis ante. Praesent placer at nibh non justo tempus volutpat. Sed ornare turpis sit amet aliquet malesuada. Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua at accusam.</p>
+          <p>Maecenas augue, augue at vitae rhoncus lorem, vitae feugiat justo mi, in posuere est nibh. Sed ut erat diam condimentum molestie sed tortor. Donec imperdiet risus vel ipsum venenatis, at commodo nulla finibus. Quisque laoreet nisl ut libero porttitor, in faucibus diam pretium. Integer vulputate lorem id velit dignissim.</p>
+        </div>
+        <div>
+          <div class="bh-media">Video — 16:9</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL / FROM OUR COMMUNITY -->
+  <section id="testimonial" class="testimonial">
+    <div class="container">
+      <div class="section-label">From our community&hellip;</div>
+      <p class="quote-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis ante. Praesent placer at nibh non justo tempus volutpat. Sed ornare turpis sit amet aliquet malesuada magna aliquyam erat, sed diam voluptua et accusam lorem justo."</p>
+      <span class="quote-attr">Janet Johnson</span>
+      <p class="quote-title">Client, Mount Rogers Community Services</p>
+    </div>
+  </section>
+
+  <!-- SHARED: crisis banner injected by mrcs-components.js -->
+  <div id="mrcs-crisis"></div>
+
+  <!-- SHARED: work at mount rogers CTA injected by mrcs-components.js -->
+  <div id="mrcs-work-cta"></div>
+
+  <!-- SHARED: footer injected by mrcs-components.js -->
+  <div id="mrcs-footer"></div>
+
+  <script src="mrcs-components.js"></script>
+</body>
+</html>
