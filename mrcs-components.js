@@ -25,7 +25,7 @@
     <div class="util-bar">
       <div class="util-bar-inner">
         <a href="mrcs-wf-careers-v5.html" class="util-gethelp">Join Our Team</a>
-        <a href="mrcs-wf-crisis-v5.html" class="util-phone">Are you in crisis? (866) 589-0265</a>
+        <a href="mrcs-wf-getting-help-now-v5.html" class="util-phone">Are you in crisis? (866) 589-0265</a>
       </div>
     </div>
 
@@ -104,6 +104,7 @@
           <div class="nav-item">
             <a href="mrcs-wf-contact-v5.html">Contact &#9662;</a>
             <div class="nav-dropdown">
+              <a href="mrcs-wf-getting-help-now-v5.html">Getting Help Now</a>
               <a href="mrcs-wf-faq-v5.html">FAQ</a>
               <a href="mrcs-wf-records-request-v5.html">Records Request</a>
             </div>
@@ -226,7 +227,7 @@
         <h2>If you or someone you know is in crisis, we're here 24/7.</h2>
         <p class="crisis-subcopy">Our crisis team is available around the clock.<br>You don't have to face this alone.</p>
         <a href="tel:8665890265" class="crisis-phone">(866) 589-0265</a>
-        <a href="#" class="btn btn-primary">Call Now</a>
+        <a href="mrcs-wf-getting-help-now-v5.html" class="btn btn-primary">Call Now</a>
       </div>
     </section>
   `;
