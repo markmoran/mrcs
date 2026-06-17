@@ -180,35 +180,35 @@
       <div class="container">
         <div class="section-label">Services</div>
         <div class="services-grid">
-          <a href="mrcs-wf-service-v5.html" class="service-card">
+          <a href="mrcs-wf-crisis-v5.html" class="service-card">
             <h4>Crisis Management</h4>
             <p>Locations, phone numbers &amp; hours for all crisis sites.</p>
           </a>
-          <a href="mrcs-wf-service-v5.html" class="service-card">
+          <a href="mrcs-wf-counseling-v5.html" class="service-card">
             <h4>Counseling &amp; Psychiatry</h4>
             <p>Outpatient mental health &amp; psychiatric services.</p>
           </a>
-          <a href="mrcs-wf-service-v5.html" class="service-card">
+          <a href="mrcs-wf-wellness-v5.html" class="service-card">
             <h4>Wellness &amp; Community Engagement</h4>
             <p>Community engagement and wellness programs.</p>
           </a>
-          <a href="mrcs-wf-service-v5.html" class="service-card">
+          <a href="mrcs-wf-dev-disability-v5.html" class="service-card">
             <h4>Developmental Disability</h4>
             <p>Support for individuals &amp; families.</p>
           </a>
-          <a href="mrcs-wf-service-v5.html" class="service-card">
+          <a href="mrcs-wf-residential-v5.html" class="service-card">
             <h4>Residential</h4>
             <p>Supported residential living programs.</p>
           </a>
-          <a href="mrcs-wf-service-v5.html" class="service-card">
+          <a href="mrcs-wf-community-based-v5.html" class="service-card">
             <h4>Community Based</h4>
             <p>In-home and community support services.</p>
           </a>
-          <a href="mrcs-wf-service-v5.html" class="service-card">
+          <a href="mrcs-wf-case-management-v5.html" class="service-card">
             <h4>Case Management</h4>
             <p>Coordinated care &amp; community supports.</p>
           </a>
-          <a href="mrcs-wf-service-v5.html" class="service-card">
+          <a href="mrcs-wf-ess-v5.html" class="service-card">
             <h4>Employment Support Services</h4>
             <p>Competitive, customized employment support.</p>
           </a>
