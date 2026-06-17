@@ -150,13 +150,13 @@
 
     /* EVENT BODY */
     .event-body { background: var(--surface); padding: 0 0 48px; }
-    .event-body-inner { max-width: 800px; width: 100%; margin: 0 auto; padding: 0 var(--container-pad); }
+    .event-body-inner { max-width: 850px; width: 100%; margin: 0 auto; padding: 0 var(--container-pad); }
     .event-body .ph-img { margin-bottom: 32px; }
     .event-body p { margin-bottom: 16px; }
 
     /* EVENT META */
     .event-meta { background: var(--surface); padding: 0 0 64px; }
-    .event-meta-inner { max-width: 800px; width: 100%; margin: 0 auto; padding: 0 var(--container-pad); border-top: 1px solid var(--border); padding-top: 32px; }
+    .event-meta-inner { max-width: var(--container-max); width: 100%; margin: 0 auto; padding: 0 var(--container-pad); border-top: 1px solid var(--border); padding-top: 32px; }
     .event-meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .event-meta-col h4 { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 16px; }
     .event-meta-col dl dt { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
@@ -166,9 +166,8 @@
     .event-meta-col a:hover { opacity: 0.75; text-decoration: none; }
 
     /* EVENT MAP */
-    .event-map { background: var(--surface); padding: 0 0 64px; }
-    .event-map-inner { max-width: 800px; width: 100%; margin: 0 auto; padding: 0 var(--container-pad); }
-    .map-placeholder { width: 100%; height: 250px; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--text-light); border-radius: var(--radius); }
+    .event-map { background: var(--surface); padding: 0 100px 64px; }
+    .map-placeholder { width: 100%; height: 379px; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--text-light); border-radius: var(--radius); box-shadow: 0 4px 4px rgba(0,0,0,0.25); }
 
     /* CALLOUT */
     .callout { background: var(--surface); padding: var(--space-xl) 0; }
@@ -177,7 +176,7 @@
     .callout-text { flex: 1; }
     .callout-text h2 { margin-bottom: 16px; }
     .callout-text p { margin-bottom: 12px; }
-    .callout-media { width: 280px; height: 220px; background: var(--label-bg); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); border-radius: var(--radius); }
+    .callout-media { width: 400px; height: 300px; background: var(--label-bg); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); border-radius: var(--radius); }
 
     @media (max-width: 768px) {
       .event-meta-grid { grid-template-columns: 1fr; }
@@ -255,9 +254,7 @@
 
   <!-- 5. EVENT MAP -->
   <section class="event-map">
-    <div class="event-map-inner">
-      <div class="map-placeholder">Map — Location</div>
-    </div>
+    <div class="map-placeholder">Map — Location</div>
   </section>
 
   <!-- 6. CRISIS -->
@@ -273,7 +270,7 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
           <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
         </div>
-        <div class="callout-media">Media 280×220</div>
+        <div class="callout-media">Media 400×300</div>
       </div>
     </div>
   </section>

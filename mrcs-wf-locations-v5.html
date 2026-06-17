@@ -121,7 +121,7 @@
        LOCATIONS PAGE SECTION-SPECIFIC CSS
        ============================================================ */
     .hero { background: var(--surface); padding: 72px 0 80px; }
-    .hero-inner { max-width: 800px; width: 100%; margin: 0 auto; padding: 0 var(--container-pad); }
+    .hero-inner { max-width: 850px; width: 100%; margin: 0 auto; padding: 0 var(--container-pad); }
     .hero .breadcrumb { font-size: 14px; margin-bottom: 28px; color: var(--text-mid); }
     .hero .breadcrumb a { color: var(--text-dark); text-decoration: underline; }
     .hero .breadcrumb a:hover { opacity: 0.7; text-decoration: none; }
@@ -129,33 +129,28 @@
     .hero .subhead { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; }
     .hero p { margin-bottom: var(--space-md); }
 
-    .locations-map-section { background: var(--surface); padding: 48px 0 0; }
-    .locations-map-section .container { }
+    .locations-map-section { background: var(--surface); padding: 48px 100px 0; }
     .locations-map-section h2 { text-align: center; margin-bottom: 28px; }
-    .map-placeholder { width: 100%; height: 400px; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--text-light); border-radius: var(--radius); }
+    .map-placeholder { width: 100%; height: 514px; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--text-light); border-radius: var(--radius); box-shadow: 0 4px 4px rgba(0,0,0,0.25); }
 
-    .locations-list-section { background: var(--surface); padding: 32px 0 64px; }
-    .loc-filter-row { display: flex; align-items: center; gap: 12px; margin-bottom: 0; flex-wrap: wrap; }
+    .locations-list-section { background: var(--surface); padding: 48px 100px 80px; }
+    .loc-filter-row { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
     .loc-filter-label { font-size: 13px; color: var(--text-mid); font-weight: 500; }
     .loc-select { height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; color: var(--text-mid); background: var(--surface); min-width: 140px; }
     .loc-clear { font-size: 13px; color: var(--text-mid); text-decoration: underline; cursor: pointer; }
     .loc-clear:hover { opacity: 0.75; text-decoration: none; }
-    .loc-count { font-size: 13px; color: var(--text-light); margin: 16px 0 24px; }
-    .location-row { display: flex; gap: 24px; align-items: flex-start; padding: 24px 0; border-bottom: 1px solid var(--border); }
-    .location-row:last-child { border-bottom: none; }
-    .location-info { flex: 1; }
-    .location-info h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-    .location-info h4 a { color: var(--text-dark); text-decoration: underline; }
-    .location-info h4 a:hover { opacity: 0.75; text-decoration: none; }
-    .location-meta-items { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-bottom: 10px; }
-    .location-meta-item { font-size: 13px; color: var(--text-mid); display: flex; align-items: center; gap: 5px; }
-    .loc-icon { font-size: 11px; color: var(--text-light); font-weight: 700; border: 1px solid var(--border); padding: 1px 4px; border-radius: 2px; }
-    .location-services { font-size: 13px; color: var(--text-mid); }
-    .location-img { width: 160px; height: 120px; background: var(--label-bg); border-radius: var(--radius); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-light); }
-    .loc-pagination { display: flex; justify-content: center; gap: 6px; margin-top: 36px; }
-    .loc-pagination a, .loc-pagination span { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-dark); text-decoration: none; }
-    .loc-pagination span.active { background: var(--text-dark); color: #fff; border-color: var(--text-dark); font-weight: 700; }
-    .loc-pagination a:hover { border-color: var(--border-dark); opacity: 1; }
+    .location-card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 48px; }
+    .location-card { background: #f6f6f6; border: 1px solid #e9e9e9; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+    .location-card-img { width: 100%; height: 168px; background: var(--label-bg); border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-light); }
+    .location-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .location-card h4 a { color: var(--text-dark); text-decoration: underline; }
+    .location-card h4 a:hover { opacity: 0.75; text-decoration: none; }
+    .location-card-addr { font-size: 14px; color: var(--text-mid); }
+    .location-card-city { font-size: 14px; color: var(--text-mid); }
+    .location-card-phone { font-size: 14px; color: var(--text-mid); }
+    .loc-view-all { display: block; text-align: center; }
+    @media (max-width: 900px) { .location-card-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .location-card-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -178,112 +173,83 @@
 
   <!-- MAP SECTION -->
   <section class="locations-map-section">
-    <div class="container">
-      <h2>Find your nearest Mount Rogers location</h2>
-      <div class="map-placeholder">Map — Locations</div>
-    </div>
+    <h2>Find your nearest Mount Rogers location</h2>
+    <div class="map-placeholder">Map — Locations</div>
   </section>
 
-  <!-- FILTER & LIST SECTION -->
+  <!-- FILTER & CARD GRID SECTION -->
   <section class="locations-list-section">
-    <div class="container">
-      <div class="loc-filter-row">
-        <span class="loc-filter-label">Filter by:</span>
-        <select class="loc-select" aria-label="Filter by City">
-          <option>City</option>
-          <option>Marion</option>
-          <option>Galax</option>
-          <option>Wytheville</option>
-          <option>Hillsville</option>
-          <option>Independence</option>
-        </select>
-        <select class="loc-select" aria-label="Filter by Services">
-          <option>Services</option>
-          <option>Counseling</option>
-          <option>Crisis Support</option>
-          <option>Community Programs</option>
-        </select>
-        <span class="loc-clear">Clear all fields</span>
-      </div>
-      <p class="loc-count">Showing 10 of 27 Locations</p>
+    <div class="loc-filter-row">
+      <span class="loc-filter-label">Filter by:</span>
+      <select class="loc-select" aria-label="Filter by City">
+        <option>City</option>
+        <option>Marion</option>
+        <option>Galax</option>
+        <option>Wytheville</option>
+        <option>Hillsville</option>
+        <option>Independence</option>
+      </select>
+      <select class="loc-select" aria-label="Filter by Services">
+        <option>Services</option>
+        <option>Counseling</option>
+        <option>Crisis Support</option>
+        <option>Community Programs</option>
+      </select>
+      <span class="loc-clear">Clear all fields</span>
+    </div>
 
-      <!-- Location Rows -->
-      <div class="location-row">
-        <div class="location-info">
-          <h4><a href="mrcs-wf-location-v5.html">Marion Office</a></h4>
-          <div class="location-meta-items">
-            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 123 Your Address Drive, Marion, Virginia, 24354</div>
-            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 783-4636</div>
-            <div class="location-meta-item"><span class="loc-icon">[email]</span> info@mountrogers.org</div>
-            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 8:00 AM – 5:00 PM</div>
-          </div>
-          <p class="location-services"><strong>Services:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim.</p>
-        </div>
-        <div class="location-img">Image</div>
+    <!-- Location Card Grid -->
+    <div class="location-card-grid">
+      <div class="location-card">
+        <h4><a href="mrcs-wf-location-v5.html">Marion Office</a></h4>
+        <span class="location-card-addr">123 Your Address Drive</span>
+        <span class="location-card-city">Marion, VA 24354</span>
+        <span class="location-card-phone">(276) 783-4636</span>
       </div>
-
-      <div class="location-row">
-        <div class="location-info">
-          <h4><a href="mrcs-wf-location-v5.html">Galax Office</a></h4>
-          <div class="location-meta-items">
-            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 456 Community Plaza, Galax, Virginia, 24333</div>
-            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 236-3456</div>
-            <div class="location-meta-item"><span class="loc-icon">[email]</span> galax@mountrogers.org</div>
-            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 8:30 AM – 5:30 PM</div>
-          </div>
-          <p class="location-services"><strong>Services:</strong> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; donec vel turpis.</p>
-        </div>
-        <div class="location-img">Image</div>
+      <div class="location-card">
+        <h4><a href="mrcs-wf-location-v5.html">Galax Office</a></h4>
+        <span class="location-card-addr">456 Community Plaza</span>
+        <span class="location-card-city">Galax, VA 24333</span>
+        <span class="location-card-phone">(276) 236-3456</span>
       </div>
-
-      <div class="location-row">
-        <div class="location-info">
-          <h4><a href="mrcs-wf-location-v5.html">Wytheville Office</a></h4>
-          <div class="location-meta-items">
-            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 789 Main Street, Wytheville, Virginia, 24382</div>
-            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 228-5678</div>
-            <div class="location-meta-item"><span class="loc-icon">[email]</span> wytheville@mountrogers.org</div>
-            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 9:00 AM – 5:00 PM</div>
-          </div>
-          <p class="location-services"><strong>Services:</strong> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-        </div>
-        <div class="location-img">Image</div>
+      <div class="location-card">
+        <h4><a href="mrcs-wf-location-v5.html">Wytheville Office</a></h4>
+        <span class="location-card-addr">789 Main Street</span>
+        <span class="location-card-city">Wytheville, VA 24382</span>
+        <span class="location-card-phone">(276) 228-5678</span>
       </div>
-
-      <div class="location-row">
-        <div class="location-info">
-          <h4><a href="mrcs-wf-location-v5.html">Hillsville Office</a></h4>
-          <div class="location-meta-items">
-            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 321 Community Drive, Hillsville, Virginia, 24343</div>
-            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 728-9012</div>
-            <div class="location-meta-item"><span class="loc-icon">[email]</span> hillsville@mountrogers.org</div>
-            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 8:00 AM – 5:00 PM</div>
-          </div>
-          <p class="location-services"><strong>Services:</strong> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
-        </div>
-        <div class="location-img">Image</div>
+      <div class="location-card">
+        <h4><a href="mrcs-wf-location-v5.html">Hillsville Office</a></h4>
+        <span class="location-card-addr">321 Community Drive</span>
+        <span class="location-card-city">Hillsville, VA 24343</span>
+        <span class="location-card-phone">(276) 728-9012</span>
       </div>
-
-      <div class="location-row">
-        <div class="location-info">
-          <h4><a href="mrcs-wf-location-v5.html">Independence Office</a></h4>
-          <div class="location-meta-items">
-            <div class="location-meta-item"><span class="loc-icon">[pin]</span> 654 Service Road, Independence, Virginia, 24348</div>
-            <div class="location-meta-item"><span class="loc-icon">[phone]</span> (276) 773-3456</div>
-            <div class="location-meta-item"><span class="loc-icon">[email]</span> independence@mountrogers.org</div>
-            <div class="location-meta-item"><span class="loc-icon">[clock]</span> M–F: 8:00 AM – 4:30 PM</div>
-          </div>
-          <p class="location-services"><strong>Services:</strong> Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
-        </div>
-        <div class="location-img">Image</div>
+      <div class="location-card">
+        <h4><a href="mrcs-wf-location-v5.html">Independence Office</a></h4>
+        <span class="location-card-addr">654 Service Road</span>
+        <span class="location-card-city">Independence, VA 24348</span>
+        <span class="location-card-phone">(276) 773-3456</span>
       </div>
-
-      <!-- Pagination -->
-      <div class="loc-pagination">
-        <span class="active">1</span>
-        <a href="#">2</a>
+      <div class="location-card">
+        <h4><a href="mrcs-wf-location-v5.html">Abingdon Office</a></h4>
+        <span class="location-card-addr">321 Town Center Drive</span>
+        <span class="location-card-city">Abingdon, VA 24210</span>
+        <span class="location-card-phone">(276) 525-1234</span>
+      </div>
+      <div class="location-card">
+        <h4><a href="mrcs-wf-location-v5.html">Bristol Office</a></h4>
+        <span class="location-card-addr">199 Piedmont Avenue</span>
+        <span class="location-card-city">Bristol, VA 24201</span>
+        <span class="location-card-phone">(276) 669-5678</span>
+      </div>
+      <div class="location-card">
+        <h4><a href="mrcs-wf-location-v5.html">Pulaski Office</a></h4>
+        <span class="location-card-addr">88 Commerce Street</span>
+        <span class="location-card-city">Pulaski, VA 24301</span>
+        <span class="location-card-phone">(540) 980-9012</span>
       </div>
     </div>
+    <a href="#" class="btn btn-secondary loc-view-all">View All Locations</a>
   </section>
 
   <!-- CRISIS -->

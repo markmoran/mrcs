@@ -75,7 +75,7 @@
 
     /* HERO */
     .hero { background: var(--surface); padding: 72px 0 80px; }
-    .hero-inner { max-width: 800px; width: 100%; margin: 0 auto; }
+    .hero-inner { max-width: 850px; width: 100%; margin: 0 auto; }
     .hero .breadcrumb { font-size: 14px; margin-bottom: 28px; color: var(--text-mid); }
     .hero .breadcrumb a { color: var(--text-dark); text-decoration: underline; }
     .hero .breadcrumb a:hover { opacity: 0.7; text-decoration: none; }
@@ -90,7 +90,7 @@
 
     /* NEWS GRID */
     .news-grid-section { background: var(--bg); padding: 48px 0 32px; }
-    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); max-width: 1072px; margin: 0 auto; }
     .news-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
     .news-card:hover { border-color: var(--border-dark); }
     .news-card-img { width: 100%; aspect-ratio: 16/9; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); font-weight: 500; }
@@ -194,14 +194,6 @@
 </head>
 <body>
 
-  <!-- UTILITY BAR -->
-  <div class="util-bar">
-    <div class="util-bar-inner">
-      <a href="mrcs-wf-services-v5.html" class="util-gethelp">Get Help</a>
-      <a href="tel:+1234567890" class="util-phone">Call 1 (800) 123-4567</a>
-    </div>
-  </div>
-
   <!-- HEADER -->
   <div id="mrcs-header"></div>
 
@@ -217,10 +209,10 @@
     </div>
   </section>
 
-  <!-- FILTER ROW -->
-  <div class="news-filters">
+  <!-- NEWS GRID -->
+  <section id="news-grid" class="news-grid-section">
     <div class="container">
-      <div class="filters-row">
+      <div class="filters-row" style="margin-bottom: 32px;">
         <select class="filter-select">
           <option>Filter Item</option>
         </select>
@@ -229,12 +221,6 @@
         </select>
         <button class="btn btn-secondary" style="padding:8px 20px;font-size:14px;">Select</button>
       </div>
-    </div>
-  </div>
-
-  <!-- NEWS GRID -->
-  <section id="news-grid" class="news-grid-section">
-    <div class="container">
       <div class="news-grid">
         <div class="news-card">
           <div class="news-card-img">Image — 16:9</div>

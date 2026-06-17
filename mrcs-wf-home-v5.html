@@ -320,25 +320,11 @@
        SUPPORT MISSION
        ~800-900px max content width. Grid ~2:1.
     ============================================= */
-    .support { background: var(--bg); padding: 56px 0; }
-    .support .section-label { text-align: center; }
-    .support .container { max-width: 900px; }
-    .support-grid {
-      display: grid; grid-template-columns: 2fr 1fr;
-      gap: 40px; align-items: center;
-    }
-    .support-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 36px;
-    }
-    .support-card h2 { margin-bottom: 12px; }
-    .support-card p  { font-size: 15px; margin-bottom: 28px; }
-    .support-links   { display: flex; flex-direction: column; gap: 0; }
-    .support-link {
-      display: block; font-size: 15px; font-weight: 500; color: var(--text-dark);
-      padding: 12px 0; text-decoration: underline;
-    }
-    .support-link:hover { opacity: 0.7; text-decoration: none; }
+    .support { background: var(--bg); padding: 72px 0; text-align: center; }
+    .support .section-label { margin-bottom: 20px; }
+    .support-cta { max-width: 600px; margin: 0 auto; }
+    .support-cta h2 { margin-bottom: 16px; }
+    .support-cta p  { font-size: 15px; margin-bottom: 28px; }
 
 
     /* =============================================
@@ -584,17 +570,10 @@
   <section class="support">
     <div class="container">
       <div class="section-label">Support Our Mission</div>
-      <div class="support-grid">
-        <div class="support-card">
-          <h2>Make a difference in your community</h2>
-          <p>Your support funds crisis services, counseling, and community programs that help our neighbors thrive.</p>
-          <a href="mrcs-wf-donate-v5.html" class="btn btn-secondary">Donate Now &rsaquo;</a>
-        </div>
-        <div class="support-links">
-          <a href="mrcs-wf-foundation-v5.html" class="support-link">Foundation &amp; Donors &rsaquo;</a>
-          <a href="mrcs-wf-ways-to-give-v5.html" class="support-link">Ways to Give &rsaquo;</a>
-          <a href="#" class="support-link">Our Impact &rsaquo;</a>
-        </div>
+      <div class="support-cta">
+        <h2>Make a difference in your community</h2>
+        <p>Your support funds crisis services, counseling, and community programs that help our neighbors thrive.</p>
+        <a href="mrcs-wf-donate-v5.html" class="btn btn-secondary">Donate Now &rsaquo;</a>
       </div>
     </div>
   </section>
