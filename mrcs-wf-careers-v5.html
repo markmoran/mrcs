@@ -381,6 +381,24 @@
     .apply-cta .section-label { color: var(--text-mid); margin-bottom: 12px; }
     .apply-cta h2 { color: var(--text-dark); max-width: 560px; margin: 0 auto 24px; }
 
+    /* JOB LISTINGS */
+    .job-listings { background: #f4f4f4; }
+    .job-listings h2 { margin-bottom: 8px; }
+    .job-listings > .container > p { margin-bottom: 32px; }
+    .job-listings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-bottom: 40px; }
+    .job-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: var(--space-lg);
+      display: flex; flex-direction: column;
+    }
+    .job-card-title { font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+    .job-card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
+    .job-card-dept { font-size: 14px; color: var(--text-mid); margin-bottom: 20px; flex: 1; }
+    .job-card-link { font-size: 14px; color: var(--text-dark); text-decoration: underline; text-align: right; margin-top: auto; }
+    .job-card-link:hover { opacity: 0.75; text-decoration: none; }
+    .job-listings-footer { text-align: center; }
+    @media (max-width: 768px) { .job-listings-grid { grid-template-columns: 1fr; } }
+
     /* STATS */
     .stats { background: var(--surface); }
     .stats-title { color: var(--text-dark); margin-bottom: var(--space-xl); }
@@ -470,6 +488,80 @@
       <div class="section-label">How to Apply for a Job</div>
       <h2>Look through our job listings to find your future career</h2>
       <a href="mrcs-wf-open-positions-v5.html" class="btn btn-secondary">View Current Openings</a>
+    </div>
+  </section>
+
+  <!-- JOB LISTINGS -->
+  <section id="job-listings" class="job-listings section">
+    <div class="container">
+      <h2>Current Job Openings</h2>
+      <p>Join our team and make a difference in the communities we serve.</p>
+      <div class="job-listings-grid">
+
+        <div class="job-card">
+          <div class="job-card-title">Peer Recovery Specialist - Supportive Housing</div>
+          <div class="job-card-meta">
+            <span>Location, VA</span>
+            <span>6/16/2026</span>
+          </div>
+          <div class="job-card-dept">Mental Health Services</div>
+          <a href="#" class="job-card-link">View Details</a>
+        </div>
+
+        <div class="job-card">
+          <div class="job-card-title">Veteran Navigator</div>
+          <div class="job-card-meta">
+            <span>Location, VA</span>
+            <span>6/15/2026</span>
+          </div>
+          <div class="job-card-dept">Prevention and Wellness</div>
+          <a href="#" class="job-card-link">View Details</a>
+        </div>
+
+        <div class="job-card">
+          <div class="job-card-title">Nurse Practitioner - Mobile Unit</div>
+          <div class="job-card-meta">
+            <span>Location, VA</span>
+            <span>6/15/2026</span>
+          </div>
+          <div class="job-card-dept">Prescribers</div>
+          <a href="#" class="job-card-link">View Details</a>
+        </div>
+
+        <div class="job-card">
+          <div class="job-card-title">Case Manager - Residential Services</div>
+          <div class="job-card-meta">
+            <span>Location, VA</span>
+            <span>6/12/2026</span>
+          </div>
+          <div class="job-card-dept">Residential Services</div>
+          <a href="#" class="job-card-link">View Details</a>
+        </div>
+
+        <div class="job-card">
+          <div class="job-card-title">Licensed Clinical Social Worker</div>
+          <div class="job-card-meta">
+            <span>Location, VA</span>
+            <span>6/10/2026</span>
+          </div>
+          <div class="job-card-dept">Outpatient Counseling</div>
+          <a href="#" class="job-card-link">View Details</a>
+        </div>
+
+        <div class="job-card">
+          <div class="job-card-title">Employment Specialist</div>
+          <div class="job-card-meta">
+            <span>Location, VA</span>
+            <span>6/08/2026</span>
+          </div>
+          <div class="job-card-dept">Employment Support Services</div>
+          <a href="#" class="job-card-link">View Details</a>
+        </div>
+
+      </div>
+      <div class="job-listings-footer">
+        <a href="mrcs-wf-open-positions-v5.html" class="btn btn-secondary">View More Jobs</a>
+      </div>
     </div>
   </section>
 

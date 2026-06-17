@@ -384,36 +384,70 @@
     .hero .subhead { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; }
     .hero p { margin-bottom: var(--space-md); }
 
-    /* DONATION FORM */
-    .donation-form-section { background: #f4f4f4; padding: 72px 0; }
-    .donation-form-inner { max-width: 800px; width: 100%; margin: 0 auto; }
-    .donation-form-inner h2 { font-size: 22px; margin-bottom: 32px; color: var(--text-dark); }
-    .form-field { margin-bottom: 24px; }
-    .form-field label { display: block; font-size: 12px; font-weight: 500; color: #404040; margin-bottom: 6px; }
-    .form-input,
-    .form-select,
-    .form-textarea {
-      display: block; width: 100%;
-      background: #fff; border: 1px solid #ccc; border-radius: 4px;
-      font-family: var(--font-body); font-size: 14px; color: var(--text-dark);
-      appearance: none; -webkit-appearance: none;
+    /* DONATION AMOUNT SELECTOR */
+    .donation-selector-section { background: #f4f4f4; padding: 72px 0; }
+    .donation-selector-card {
+      max-width: 520px; margin: 0 auto;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 6px; padding: 40px 36px;
     }
-    .form-input,
-    .form-select { height: 44px; padding: 0 14px; }
-    .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
-    .form-textarea { height: 120px; padding: 12px 14px; resize: vertical; }
-    .form-input::placeholder,
-    .form-textarea::placeholder { color: #aaa; }
-    .form-input:focus,
-    .form-select:focus,
-    .form-textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
-    .form-submit {
-      background: #111; color: #fff;
-      font-family: var(--font-body); font-size: 14px; font-weight: 600;
-      padding: 12px 32px; border: none; border-radius: 4px; cursor: pointer;
+    .donation-selector-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--text-dark); }
+    .donation-selector-card > p { font-size: 14px; color: var(--text-mid); margin-bottom: 24px; line-height: 1.6; }
+    .donation-amount-display {
+      display: flex; align-items: center; gap: 0;
+      border: 1px solid var(--border); border-radius: 4px;
+      overflow: hidden; margin-bottom: 20px; height: 64px;
     }
-    .form-submit:hover { opacity: 0.85; }
+    .donation-currency {
+      padding: 0 16px; font-size: 18px; font-weight: 500; color: var(--text-mid);
+      border-right: 1px solid var(--border); background: #fafafa; height: 100%;
+      display: flex; align-items: center;
+    }
+    .donation-amount-value {
+      flex: 1; padding: 0 16px; font-size: 36px; font-weight: 700;
+      color: var(--text-dark);
+    }
+    .donation-amounts-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin-bottom: 20px;
+    }
+    .amount-btn {
+      padding: 14px 8px; font-size: 15px; font-weight: 600;
+      border: 2px solid var(--text-dark); border-radius: 4px; cursor: pointer;
+      text-align: center;
+    }
+    .amount-btn.selected {
+      background: #fff; color: var(--text-dark); border-color: var(--text-dark);
+    }
+    .amount-btn:not(.selected) {
+      background: var(--text-dark); color: #fff;
+    }
+    .amount-btn-custom {
+      grid-column: 1 / 2; background: var(--text-dark); color: #fff;
+      border-color: var(--text-dark);
+    }
+    .donation-recurring-row {
+      display: flex; align-items: center; gap: 10px;
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 14px 16px; margin-bottom: 24px; font-size: 14px; color: var(--text-dark);
+    }
+    .donation-recurring-row input[type="checkbox"] { width: 16px; height: 16px; flex-shrink: 0; }
+    .donation-recurring-row select {
+      border: none; border-bottom: 1px solid var(--text-dark);
+      font-size: 14px; font-weight: 500; color: var(--text-dark);
+      background: transparent; cursor: pointer; margin-left: 4px;
+    }
+    .donation-continue-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 16px; background: var(--text-dark); color: #fff;
+      font-size: 16px; font-weight: 600; border: none; border-radius: 4px;
+      cursor: pointer; text-decoration: none; margin-bottom: 16px;
+    }
+    .donation-continue-btn:hover { opacity: 0.85; text-decoration: none; color: #fff; }
+    .donation-secure-note {
+      text-align: center; font-size: 12px; color: var(--text-light);
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+    }
 
     /* USE OF DONATIONS */
     .use-of-donations { background: #e9e9e9; padding: 72px 0; }
@@ -466,46 +500,43 @@
     </div>
   </section>
 
-  <!-- DONATION FORM -->
-  <section id="donation-form" class="donation-form-section">
+  <!-- DONATION AMOUNT SELECTOR -->
+  <section id="donation-form" class="donation-selector-section">
     <div class="container">
-      <div class="donation-form-inner">
-        <h2>Donation Form (Placeholder)</h2>
-        <form action="#" method="post" novalidate>
-          <div class="form-field">
-            <label for="donation-type">Inquiry Type</label>
-            <select id="donation-type" name="donation_type" class="form-select">
-              <option value="" disabled selected>Select an inquiry type</option>
-              <option value="one-time">One-Time Gift</option>
-              <option value="monthly">Monthly Recurring</option>
-              <option value="annual">Annual Gift</option>
-              <option value="memorial">Memorial / Honorary Gift</option>
+      <div class="donation-selector-card">
+        <h2>Choose Amount</h2>
+        <p>How much would you like to donate? Your gift goes directly to supporting the people and programs at Mount Rogers Community Services.</p>
+
+        <div class="donation-amount-display">
+          <span class="donation-currency">$</span>
+          <span class="donation-amount-value">100</span>
+        </div>
+
+        <div class="donation-amounts-grid">
+          <div class="amount-btn">$25</div>
+          <div class="amount-btn">$50</div>
+          <div class="amount-btn selected">$100</div>
+          <div class="amount-btn">$150</div>
+          <div class="amount-btn">$250</div>
+          <div class="amount-btn">$500</div>
+          <div class="amount-btn amount-btn-custom">Custom Amount</div>
+        </div>
+
+        <div class="donation-recurring-row">
+          <input type="checkbox" id="recurring">
+          <label for="recurring">Make this donation every
+            <select>
+              <option>month</option>
+              <option>year</option>
             </select>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="first-name">First Name</label>
-              <input id="first-name" name="first_name" type="text" class="form-input" placeholder="Jane">
-            </div>
-            <div class="form-field">
-              <label for="last-name">Last Name</label>
-              <input id="last-name" name="last_name" type="text" class="form-input" placeholder="Smith">
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="jane@example.com">
-          </div>
-          <div class="form-field">
-            <label for="phone">Phone (optional)</label>
-            <input id="phone" name="phone" type="tel" class="form-input" placeholder="(555) 000-0000">
-          </div>
-          <div class="form-field">
-            <label for="message">Message or Dedication (optional)</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="In memory of... / In honor of... / Leave a note"></textarea>
-          </div>
-          <button type="submit" class="form-submit">Submit Donation</button>
-        </form>
+          </label>
+        </div>
+
+        <a href="#" class="donation-continue-btn">Continue &rsaquo;</a>
+
+        <div class="donation-secure-note">
+          <span>&#128274;</span> Secure Donation
+        </div>
       </div>
     </div>
   </section>
