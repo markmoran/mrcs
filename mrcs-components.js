@@ -178,38 +178,38 @@
       <div class="container">
         <div class="section-label">Services</div>
         <div class="services-grid">
-          <div class="service-card">
+          <a href="mrcs-wf-service-v5.html" class="service-card">
             <h4>Crisis Management</h4>
             <p>Locations, phone numbers &amp; hours for all crisis sites.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a href="mrcs-wf-service-v5.html" class="service-card">
             <h4>Counseling &amp; Psychiatry</h4>
             <p>Outpatient mental health &amp; psychiatric services.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a href="mrcs-wf-service-v5.html" class="service-card">
             <h4>Wellness &amp; Community Engagement</h4>
             <p>Community engagement and wellness programs.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a href="mrcs-wf-service-v5.html" class="service-card">
             <h4>Developmental Disability</h4>
             <p>Support for individuals &amp; families.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a href="mrcs-wf-service-v5.html" class="service-card">
             <h4>Residential</h4>
             <p>Supported residential living programs.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a href="mrcs-wf-service-v5.html" class="service-card">
             <h4>Community Based</h4>
             <p>In-home and community support services.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a href="mrcs-wf-service-v5.html" class="service-card">
             <h4>Case Management</h4>
             <p>Coordinated care &amp; community supports.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a href="mrcs-wf-service-v5.html" class="service-card">
             <h4>Employment Support Services</h4>
             <p>Competitive, customized employment support.</p>
-          </div>
+          </a>
         </div>
       </div>
     </section>
