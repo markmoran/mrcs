@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News & Events | Mount Rogers Community Services</title>
+  <title>Internships | Mount Rogers Community Services</title>
   <style>
     /* 1. RESET */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,15 +15,21 @@
       --text-dark: #1a1a1a; --text-mid: #555550; --text-light: #888880;
       --label-bg: #e4e4e0; --nav-bg: #1e1e1e; --dark-bg: #1e1e1e; --accent: #c0392b; --radius: 3px;
     }
+
+    /* 3. SEMANTIC TOKENS */
     :root {
       --color-primary: var(--accent); --color-secondary: var(--text-mid);
       --color-bg: var(--bg); --color-surface: var(--surface);
       --color-text: var(--text-dark); --color-heading: var(--text-dark);
-      --color-cta-bg: var(--accent); --color-cta-text: #ffffff; --color-nav-bg: var(--nav-bg);
-      --font-body: 'Inter', Arial, Helvetica, sans-serif; --font-heading: 'Inter', Arial, Helvetica, sans-serif;
+      --color-cta-bg: var(--accent); --color-cta-text: #ffffff;
+      --color-nav-bg: var(--nav-bg);
+      --font-body: 'Inter', Arial, Helvetica, sans-serif;
+      --font-heading: 'Inter', Arial, Helvetica, sans-serif;
       --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 32px; --space-xl: 64px; --space-2xl: 96px;
       --container-max: 1200px; --container-pad: var(--space-lg);
     }
+
+    /* 4. BASE */
     body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--text-dark); background: var(--bg); }
     h1 { font-size: clamp(36px, 5vw, 48px); font-weight: 700; line-height: 1.1; }
     h2 { font-size: clamp(26px, 3vw, 30px); font-weight: 700; line-height: 1.2; }
@@ -34,6 +40,8 @@
     a { color: inherit; text-decoration: underline; }
     a:hover { opacity: 0.75; text-decoration: none; }
     .section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: var(--space-md); }
+
+    /* 5. LAYOUT */
     .section { padding: var(--space-xl) 0; }
     .section--dark { background: var(--dark-bg); color: #fff; }
     .section--gray { background: var(--bg); }
@@ -46,6 +54,8 @@
     .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-lg); }
     .grid-stretch { align-items: stretch; }
     .card-equal { display: flex; flex-direction: column; }
+
+    /* 6. COMPONENTS */
     .nav { background: var(--nav-bg); padding: 0 var(--space-lg); display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
     .nav-logo { color: #fff; font-weight: 700; font-size: 18px; text-decoration: none; }
     .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
@@ -70,8 +80,12 @@
     .ph-img--landscape { aspect-ratio: 4/3; }
     .tag { display: inline-block; background: var(--label-bg); color: var(--text-mid); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; border-radius: var(--radius); }
     .pullquote { border-left: 3px solid var(--border-dark); padding-left: var(--space-md); font-size: 20px; color: var(--text-dark); margin: var(--space-lg) 0; }
+
+    /* 7. RESPONSIVE */
     @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } .nav-links { display: none; } }
     @media (max-width: 480px) { h1 { font-size: 28px; } h2 { font-size: 22px; } .section { padding: var(--space-lg) 0; } }
+
+    /* SECTION-SPECIFIC OVERRIDES */
 
     /* HERO */
     .hero { background: var(--surface); padding: 72px 0 80px; }
@@ -83,38 +97,21 @@
     .hero .subhead { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; }
     .hero p { margin-bottom: var(--space-md); }
 
-    /* FILTER ROW */
-    .news-filters { background: var(--surface); padding: 16px 0; }
-    .filters-row { display: flex; gap: 12px; align-items: center; }
-    .filter-select { height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; color: var(--text-mid); background: var(--surface); min-width: 160px; }
-
-    /* NEWS GRID */
-    .news-grid-section { background: var(--bg); padding: 48px 0 32px; }
-    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
-    .news-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .news-card:hover { border-color: var(--border-dark); }
-    .news-card-img { width: 100%; aspect-ratio: 16/9; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); font-weight: 500; }
-    .news-card-body { padding: 20px; }
-    .news-card-body h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; line-height: 1.3; }
-    .news-card-body h4 a { color: var(--text-dark); text-decoration: underline; }
-    .news-card-body h4 a:hover { opacity: 0.75; text-decoration: none; }
-    .news-card-body p { font-size: 14px; color: var(--text-mid); margin-bottom: 12px; }
-    .news-card-body .date { font-size: 12px; color: var(--text-light); display: block; }
-
-    /* PAGINATION */
-    .pagination { background: var(--surface); padding: 24px 0 48px; }
-    .pagination-row { display: flex; justify-content: center; align-items: center; gap: 6px; }
-    .pagination-row a,
-    .pagination-row span { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-dark); text-decoration: none; }
-    .pagination-row span.active { background: var(--text-dark); color: #fff; border-color: var(--text-dark); font-weight: 700; }
-    .pagination-row a:hover { border-color: var(--border-dark); opacity: 1; text-decoration: none; }
+    /* CALLOUT */
+    .callout { background: var(--surface); padding: 72px 0; }
+    .callout-inner { max-width: 800px; width: 100%; margin: 0 auto; display: flex; gap: 48px; align-items: flex-start; }
+    .callout-text { flex: 1; }
+    .callout-text h2 { font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: var(--space-md); }
+    .callout-text p { margin-bottom: var(--space-md); }
+    .callout-media { background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); width: 280px; height: 220px; flex-shrink: 0; border-radius: var(--radius); }
 
     @media (max-width: 768px) {
-      .news-grid { grid-template-columns: 1fr; }
-      .filters-row { flex-wrap: wrap; }
+      .callout-inner { flex-direction: column; }
+      .callout-media { width: 100%; height: 200px; }
     }
 
     /* SHARED COMPONENT STYLES */
+
     :root { --util-bg: #999999; }
     .util-bar { background: var(--util-bg); padding: 7px 0; }
     .util-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
@@ -194,198 +191,57 @@
 </head>
 <body>
 
-  <!-- UTILITY BAR -->
-  <div class="util-bar">
-    <div class="util-bar-inner">
-      <a href="mrcs-wf-services-v5.html" class="util-gethelp">Get Help</a>
-      <a href="tel:+1234567890" class="util-phone">Call 1 (800) 123-4567</a>
+<!-- HEADER -->
+<div id="mrcs-header"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="mrcs-wf-home-v5.html">Home</a> / <a href="mrcs-wf-careers-v5.html">Careers</a> / Internships
+    </div>
+    <h1>Internships</h1>
+    <p class="subhead">Internship programs and how to apply</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+  </div>
+</div>
+
+<!-- CRISIS -->
+<div id="mrcs-crisis"></div>
+
+<!-- INTERNSHIPS -->
+<section id="callout" class="callout">
+  <div class="container">
+    <div class="callout-inner">
+      <div class="callout-text">
+        <div class="section-label">INTERNSHIPS</div>
+        <h2>Internships</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="callout-media">Media</div>
     </div>
   </div>
+</section>
 
-  <!-- HEADER -->
-  <div id="mrcs-header"></div>
+<!-- SERVICES -->
+<div id="mrcs-services"></div>
 
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div class="hero-inner">
-      <div class="breadcrumb">
-        <a href="mrcs-wf-home-v5.html">Home</a> / News & Events
-      </div>
-      <h1>News & Events</h1>
-      <p class="subhead">Sub-title or short description tagline text</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula. Sed sed odio leo. Fusce id justo eget ex laoreet tincidunt. Phasellus pharetra dui vel finibus placerat.</p>
-    </div>
-  </section>
+<!-- WORK CTA -->
+<div id="mrcs-work-cta"></div>
 
-  <!-- FILTER ROW -->
-  <div class="news-filters">
-    <div class="container">
-      <div class="filters-row">
-        <select class="filter-select">
-          <option>Filter Item</option>
-        </select>
-        <select class="filter-select">
-          <option>Category</option>
-        </select>
-        <button class="btn btn-secondary" style="padding:8px 20px;font-size:14px;">Select</button>
-      </div>
-    </div>
-  </div>
+<!-- FOOTER -->
+<div id="mrcs-footer"></div>
 
-  <!-- NEWS GRID -->
-  <section id="news-grid" class="news-grid-section">
-    <div class="container">
-      <div class="news-grid">
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAGINATION -->
-  <div class="pagination">
-    <div class="container">
-      <div class="pagination-row">
-        <a href="#">‹</a>
-        <span class="active">1</span>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">›</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CRISIS -->
-  <div id="mrcs-crisis"></div>
-
-  <!-- SERVICES -->
-  <div id="mrcs-services"></div>
-
-  <!-- WORK CTA -->
-  <div id="mrcs-work-cta"></div>
-
-  <!-- FOOTER -->
-  <div id="mrcs-footer"></div>
-
-  <script src="mrcs-components.js"></script>
+<script src="mrcs-components.js"></script>
 
 </body>
 </html>
 
-<!-- CHANGELOG v5
-● Hero section: white background, centered layout (max-width 800px)
-● Breadcrumb navigation with link to home
-● Responsive typography using clamp() for h1
-● Filter row: compact with two select dropdowns and secondary button
-● News grid: 3-column layout (responsive to 1 column on mobile)
-● 12 news cards with image placeholders (16:9 aspect ratio), heading, description, and date
-● Pagination: centered with prev/next arrows and numbered pages (page 1 active/bold)
-● Shared component divs: header, crisis, services, work-cta, footer
-● All sections use MRCS color palette and spacing system
-● Mobile breakpoint at 768px collapses grid to single column
+<!-- CHANGELOG
+v5 — Complete HTML wireframe with hero, callout section with media placeholder, shared component div slots, and responsive design. Section order: header, hero, crisis, callout, services, work CTA, footer. Hero includes breadcrumb and 5 lorem paragraphs. Callout section is 2-column with 280x220px media placeholder. All component sections (header, crisis, services, work CTA, footer) injected via mrcs-components.js. CSS palette and semantic tokens configured. Responsive breakpoints at 768px and 480px.
 -->

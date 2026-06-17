@@ -25,7 +25,7 @@
     <div class="util-bar">
       <div class="util-bar-inner">
         <a href="mrcs-wf-careers-v5.html" class="util-gethelp">Join Our Team</a>
-        <a href="#" class="util-phone">Are you in crisis? (866) 589-0265</a>
+        <a href="mrcs-wf-crisis-v5.html" class="util-phone">Are you in crisis? (866) 589-0265</a>
       </div>
     </div>
 
@@ -40,45 +40,45 @@
           <div class="nav-item">
             <a href="mrcs-wf-careers-v5.html">Careers &#9662;</a>
             <div class="nav-dropdown">
-              <a href="#">Why Mount Rogers</a>
-              <a href="#">Benefits</a>
-              <a href="#">Open Positions</a>
-              <a href="#">Internships</a>
+              <a href="mrcs-wf-why-mount-rogers-v5.html">Why Mount Rogers</a>
+              <a href="mrcs-wf-benefits-v5.html">Benefits</a>
+              <a href="mrcs-wf-open-positions-v5.html">Open Positions</a>
+              <a href="mrcs-wf-internships-v5.html">Internships</a>
             </div>
           </div>
 
           <div class="nav-item">
             <a href="mrcs-wf-services-v5.html">Get Help &#9662;</a>
             <div class="nav-dropdown">
-              <a href="#">Crisis Management</a>
-              <a href="#">Counseling &amp; Psychiatry</a>
+              <a href="mrcs-wf-crisis-v5.html">Crisis Management</a>
+              <a href="mrcs-wf-counseling-v5.html">Counseling &amp; Psychiatry</a>
               <a href="mrcs-wf-wellness-v5.html">Wellness &amp; Community Engagement</a>
-              <a href="#">Developmental Disability</a>
-              <a href="#">Residential</a>
-              <a href="#">Case Management</a>
-              <a href="#">Community-Based Services</a>
-              <a href="#">Employment Support Services</a>
+              <a href="mrcs-wf-dev-disability-v5.html">Developmental Disability</a>
+              <a href="mrcs-wf-residential-v5.html">Residential</a>
+              <a href="mrcs-wf-case-management-v5.html">Case Management</a>
+              <a href="mrcs-wf-community-based-v5.html">Community-Based Services</a>
+              <a href="mrcs-wf-ess-v5.html">Employment Support Services</a>
             </div>
           </div>
 
           <div class="nav-item">
             <a href="mrcs-wf-donate-v5.html">Donate &#9662;</a>
             <div class="nav-dropdown">
-              <a href="#">Why Give</a>
-              <a href="#">Ways to Give</a>
-              <a href="#">Foundation &amp; Grants</a>
+              <a href="mrcs-wf-why-give-v5.html">Why Give</a>
+              <a href="mrcs-wf-ways-to-give-v5.html">Ways to Give</a>
+              <a href="mrcs-wf-foundation-v5.html">Foundation &amp; Grants</a>
             </div>
           </div>
 
           <div class="nav-item">
             <a href="mrcs-wf-about-v5.html">About &#9662;</a>
             <div class="nav-dropdown">
-              <a href="#">Mission &amp; Story</a>
+              <a href="mrcs-wf-mission-v5.html">Mission &amp; Story</a>
               <a href="mrcs-wf-board-v5.html">Board &amp; CEO</a>
               <a href="mrcs-wf-locations-v5.html">Locations</a>
-              <a href="#">Your Rights</a>
-              <a href="#">FOIA Requests</a>
-              <a href="#">Privacy Statement</a>
+              <a href="mrcs-wf-your-rights-v5.html">Your Rights</a>
+              <a href="mrcs-wf-foia-v5.html">FOIA Requests</a>
+              <a href="mrcs-wf-privacy-v5.html">Privacy Statement</a>
             </div>
           </div>
 
@@ -87,16 +87,16 @@
             <div class="nav-dropdown">
               <a href="mrcs-wf-news-v5.html">News / Articles Archive</a>
               <a href="mrcs-wf-events-v5.html">Events Listing</a>
-              <a href="#">Procurement Opportunities</a>
+              <a href="mrcs-wf-procurement-v5.html">Procurement Opportunities</a>
             </div>
           </div>
 
           <div class="nav-item">
             <a href="mrcs-wf-ess-v5.html">ESS &#9662;</a>
             <div class="nav-dropdown">
-              <a href="#">Employment Services</a>
-              <a href="#">Manufacturing</a>
-              <a href="#">Sample Work &amp; Clients</a>
+              <a href="mrcs-wf-employment-services-v5.html">Employment Services</a>
+              <a href="mrcs-wf-manufacturing-v5.html">Manufacturing</a>
+              <a href="mrcs-wf-sample-work-v5.html">Sample Work &amp; Clients</a>
             </div>
           </div>
 
@@ -239,7 +239,7 @@
         <div class="section-label">Work at Mount Rogers</div>
         <h2>Looking for a job with purpose and meaning?</h2>
         <p>Review our job listings to find an opportunity<br>to join our family.</p>
-        <a href="#" class="btn btn-secondary">Find a job. Join our team.</a>
+        <a href="mrcs-wf-careers-v5.html" class="btn btn-secondary">Find a job. Join our team.</a>
       </div>
     </section>
   `;
@@ -251,7 +251,7 @@
     <footer class="footer">
       <div class="container">
 
-        <a href="#" class="footer-logo-name">Mount Rogers Community Services</a>
+        <a href="mrcs-wf-home-v5.html" class="footer-logo-name">Mount Rogers Community Services</a>
 
         <div class="footer-grid">
 
@@ -260,7 +260,7 @@
               123 Headquarters Street<br>
               City Name, Virginia
             </div>
-            <a href="#" class="footer-see-locations">See all locations --&gt;</a>
+            <a href="mrcs-wf-locations-v5.html" class="footer-see-locations">See all locations --&gt;</a>
             <a href="tel:8665890265" class="footer-phone">(866) 589-0265</a>
             <p class="footer-crisis-note">Crisis line - always available</p>
             <div class="footer-social">
@@ -275,20 +275,20 @@
               <div class="footer-link-row">
                 <span class="footer-link-row-head">Get Help</span>
                 <div class="footer-link-row-links">
-                  <a href="#">Crisis Management</a>
-                  <a href="#">Counseling</a>
-                  <a href="#">Residential</a>
-                  <a href="#">All Services --&gt;</a>
+                  <a href="mrcs-wf-crisis-v5.html">Crisis Management</a>
+                  <a href="mrcs-wf-counseling-v5.html">Counseling</a>
+                  <a href="mrcs-wf-residential-v5.html">Residential</a>
+                  <a href="mrcs-wf-services-v5.html">All Services --&gt;</a>
                 </div>
               </div>
               <div class="footer-link-row">
                 <span class="footer-link-row-head">About</span>
                 <div class="footer-link-row-links">
-                  <a href="#">Mission &amp; Story</a>
-                  <a href="#">Board &amp; CEO</a>
-                  <a href="#">Locations</a>
-                  <a href="#">Your Rights</a>
-                  <a href="#">FOIA Requests</a>
+                  <a href="mrcs-wf-mission-v5.html">Mission &amp; Story</a>
+                  <a href="mrcs-wf-board-v5.html">Board &amp; CEO</a>
+                  <a href="mrcs-wf-locations-v5.html">Locations</a>
+                  <a href="mrcs-wf-your-rights-v5.html">Your Rights</a>
+                  <a href="mrcs-wf-foia-v5.html">FOIA Requests</a>
                 </div>
               </div>
               <div class="footer-link-row">
@@ -323,9 +323,9 @@
         <div class="footer-bar-inner">
           <p>&copy; 2026 Mount Rogers Community Services</p>
           <div class="footer-bar-links">
-            <a href="#">Privacy Statement</a>
-            <a href="#">FOIA</a>
-            <a href="#">Your Rights</a>
+            <a href="mrcs-wf-privacy-v5.html">Privacy Statement</a>
+            <a href="mrcs-wf-foia-v5.html">FOIA</a>
+            <a href="mrcs-wf-your-rights-v5.html">Your Rights</a>
           </div>
         </div>
       </div>

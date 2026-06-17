@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News & Events | Mount Rogers Community Services</title>
+  <title>Crisis Management | Mount Rogers Community Services</title>
   <style>
     /* 1. RESET */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,15 +15,21 @@
       --text-dark: #1a1a1a; --text-mid: #555550; --text-light: #888880;
       --label-bg: #e4e4e0; --nav-bg: #1e1e1e; --dark-bg: #1e1e1e; --accent: #c0392b; --radius: 3px;
     }
+
+    /* 3. SEMANTIC TOKENS */
     :root {
       --color-primary: var(--accent); --color-secondary: var(--text-mid);
       --color-bg: var(--bg); --color-surface: var(--surface);
       --color-text: var(--text-dark); --color-heading: var(--text-dark);
-      --color-cta-bg: var(--accent); --color-cta-text: #ffffff; --color-nav-bg: var(--nav-bg);
-      --font-body: 'Inter', Arial, Helvetica, sans-serif; --font-heading: 'Inter', Arial, Helvetica, sans-serif;
+      --color-cta-bg: var(--accent); --color-cta-text: #ffffff;
+      --color-nav-bg: var(--nav-bg);
+      --font-body: 'Inter', Arial, Helvetica, sans-serif;
+      --font-heading: 'Inter', Arial, Helvetica, sans-serif;
       --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 32px; --space-xl: 64px; --space-2xl: 96px;
       --container-max: 1200px; --container-pad: var(--space-lg);
     }
+
+    /* 4. BASE */
     body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--text-dark); background: var(--bg); }
     h1 { font-size: clamp(36px, 5vw, 48px); font-weight: 700; line-height: 1.1; }
     h2 { font-size: clamp(26px, 3vw, 30px); font-weight: 700; line-height: 1.2; }
@@ -34,6 +40,8 @@
     a { color: inherit; text-decoration: underline; }
     a:hover { opacity: 0.75; text-decoration: none; }
     .section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: var(--space-md); }
+
+    /* 5. LAYOUT */
     .section { padding: var(--space-xl) 0; }
     .section--dark { background: var(--dark-bg); color: #fff; }
     .section--gray { background: var(--bg); }
@@ -46,16 +54,8 @@
     .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-lg); }
     .grid-stretch { align-items: stretch; }
     .card-equal { display: flex; flex-direction: column; }
-    .nav { background: var(--nav-bg); padding: 0 var(--space-lg); display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
-    .nav-logo { color: #fff; font-weight: 700; font-size: 18px; text-decoration: none; }
-    .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
-    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; }
-    .nav-links a:hover { opacity: 0.75; }
-    .nav-item { position: relative; }
-    .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--surface); border: 1px solid var(--border); min-width: 180px; z-index: 200; }
-    .nav-dropdown li { list-style: none; }
-    .nav-dropdown a { display: block; padding: var(--space-sm) var(--space-md); color: var(--text-dark); font-size: 14px; }
-    .nav-item:hover .nav-dropdown { display: block; }
+
+    /* 6. COMPONENTS */
     .btn { display: inline-block; padding: 10px 24px; border-radius: var(--radius); font-size: 15px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; transition: all 0.15s ease; }
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-secondary { background: var(--text-dark); color: #fff; }
@@ -70,8 +70,12 @@
     .ph-img--landscape { aspect-ratio: 4/3; }
     .tag { display: inline-block; background: var(--label-bg); color: var(--text-mid); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; border-radius: var(--radius); }
     .pullquote { border-left: 3px solid var(--border-dark); padding-left: var(--space-md); font-size: 20px; color: var(--text-dark); margin: var(--space-lg) 0; }
-    @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } .nav-links { display: none; } }
+
+    /* 7. RESPONSIVE */
+    @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
     @media (max-width: 480px) { h1 { font-size: 28px; } h2 { font-size: 22px; } .section { padding: var(--space-lg) 0; } }
+
+    /* SECTION-SPECIFIC OVERRIDES */
 
     /* HERO */
     .hero { background: var(--surface); padding: 72px 0 80px; }
@@ -82,39 +86,39 @@
     .hero h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; }
     .hero .subhead { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; }
     .hero p { margin-bottom: var(--space-md); }
+    .hero h3 { margin-top: 24px; margin-bottom: 12px; }
 
-    /* FILTER ROW */
-    .news-filters { background: var(--surface); padding: 16px 0; }
-    .filters-row { display: flex; gap: 12px; align-items: center; }
-    .filter-select { height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; color: var(--text-mid); background: var(--surface); min-width: 160px; }
+    /* LOCATIONS SECTION */
+    .locations-section { background: var(--bg); padding: 64px 0; }
+    .locations-section > .container > p { margin-bottom: 24px; }
+    .locations-map { width: 100%; height: 360px; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--text-light); border-radius: var(--radius); margin-bottom: 24px; }
+    .locations-filters { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .loc-select { height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; color: var(--text-mid); background: var(--surface); min-width: 140px; }
+    .locations-count { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+    .location-list { list-style: none; }
+    .location-row { display: flex; gap: 24px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .location-row:last-child { border-bottom: none; }
+    .location-info { flex: 1; }
+    .location-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .location-info h4 a { color: var(--text-dark); text-decoration: underline; }
+    .location-info h4 a:hover { opacity: 0.75; text-decoration: none; }
+    .location-meta { font-size: 13px; color: var(--text-mid); margin-bottom: 4px; }
+    .location-services { font-size: 13px; color: var(--text-mid); margin-top: 8px; }
+    .location-img { width: 120px; height: 90px; background: var(--label-bg); border-radius: var(--radius); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-light); }
+    .locations-pagination { display: flex; justify-content: center; gap: 6px; margin-top: 32px; }
+    .locations-pagination a, .locations-pagination span { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-dark); text-decoration: none; }
+    .locations-pagination span.active { background: var(--text-dark); color: #fff; border-color: var(--text-dark); font-weight: 700; }
 
-    /* NEWS GRID */
-    .news-grid-section { background: var(--bg); padding: 48px 0 32px; }
-    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
-    .news-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .news-card:hover { border-color: var(--border-dark); }
-    .news-card-img { width: 100%; aspect-ratio: 16/9; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); font-weight: 500; }
-    .news-card-body { padding: 20px; }
-    .news-card-body h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; line-height: 1.3; }
-    .news-card-body h4 a { color: var(--text-dark); text-decoration: underline; }
-    .news-card-body h4 a:hover { opacity: 0.75; text-decoration: none; }
-    .news-card-body p { font-size: 14px; color: var(--text-mid); margin-bottom: 12px; }
-    .news-card-body .date { font-size: 12px; color: var(--text-light); display: block; }
-
-    /* PAGINATION */
-    .pagination { background: var(--surface); padding: 24px 0 48px; }
-    .pagination-row { display: flex; justify-content: center; align-items: center; gap: 6px; }
-    .pagination-row a,
-    .pagination-row span { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-dark); text-decoration: none; }
-    .pagination-row span.active { background: var(--text-dark); color: #fff; border-color: var(--text-dark); font-weight: 700; }
-    .pagination-row a:hover { border-color: var(--border-dark); opacity: 1; text-decoration: none; }
-
-    @media (max-width: 768px) {
-      .news-grid { grid-template-columns: 1fr; }
-      .filters-row { flex-wrap: wrap; }
-    }
+    /* CALLOUT */
+    .callout { background: var(--surface); padding: var(--space-xl) 0; }
+    .callout-row { display: flex; gap: 48px; align-items: flex-start; }
+    .callout-text { flex: 1; }
+    .callout-text h2 { margin-bottom: 16px; }
+    .callout-text p { margin-bottom: 12px; }
+    .callout-media { width: 280px; height: 220px; background: var(--label-bg); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); border-radius: var(--radius); }
 
     /* SHARED COMPONENT STYLES */
+
     :root { --util-bg: #999999; }
     .util-bar { background: var(--util-bg); padding: 7px 0; }
     .util-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
@@ -190,202 +194,160 @@
     .service-card:hover { border-color: var(--border-dark); }
     .service-card h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
     .service-card p { font-size: 14px; color: var(--text-mid); }
+
+    @media (max-width: 768px) {
+      .callout-row { flex-direction: column; }
+      .callout-media { width: 100%; height: 200px; }
+      .location-row { flex-direction: column; gap: 16px; }
+      .location-img { width: 100%; height: 120px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- UTILITY BAR -->
-  <div class="util-bar">
-    <div class="util-bar-inner">
-      <a href="mrcs-wf-services-v5.html" class="util-gethelp">Get Help</a>
-      <a href="tel:+1234567890" class="util-phone">Call 1 (800) 123-4567</a>
+<!-- HEADER -->
+<div id="mrcs-header"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="mrcs-wf-home-v5.html">Home</a> / <a href="mrcs-wf-services-v5.html">Get Help</a> / Crisis Management
+    </div>
+    <h1>Crisis Management</h1>
+    <p class="subhead">Crisis management, locations, and 24/7 support resources</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    <h3>Sub Heading Text</h3>
+    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+    <h3>Sub Heading Text</h3>
+    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+    <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+  </div>
+</div>
+
+<!-- CRISIS -->
+<div id="mrcs-crisis"></div>
+
+<!-- LOCATIONS SECTION -->
+<section class="locations-section">
+  <div class="container">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi aget dui mollis tincidunt nec quis eros. Praesent placerat nisi in laoreet consequat. Sed vitae tortor ut mauris gravida molestie. Quisque ante dolor, pellentesque vitae sem vitae, tempus porttitor ex.</p>
+    <div class="locations-map">Map — Location</div>
+    <div class="locations-filters">
+      <select class="loc-select">
+        <option>City</option>
+      </select>
+      <select class="loc-select">
+        <option>Services</option>
+      </select>
+      <a href="#">Clear all fields</a>
+    </div>
+    <div class="locations-count">Showing 10 of 27 Locations</div>
+    <ul class="location-list">
+      <li class="location-row">
+        <div class="location-info">
+          <h4><a href="mrcs-wf-location-v5.html">Marion Office</a></h4>
+          <div class="location-meta">[pin] 123 Main Street, Marion, VA 24354</div>
+          <div class="location-meta">[phone] (540) 783-4920</div>
+          <div class="location-meta">[email] marion@mrcs.org</div>
+          <div class="location-meta">[clock] Mon-Fri 8am-5pm</div>
+          <div class="location-services">Services: Crisis Management · Counseling</div>
+        </div>
+        <div class="location-img">Photo</div>
+      </li>
+      <li class="location-row">
+        <div class="location-info">
+          <h4><a href="mrcs-wf-location-v5.html">Galax Office</a></h4>
+          <div class="location-meta">[pin] 456 Oak Avenue, Galax, VA 24333</div>
+          <div class="location-meta">[phone] (276) 236-3456</div>
+          <div class="location-meta">[email] galax@mrcs.org</div>
+          <div class="location-meta">[clock] Mon-Fri 8am-5pm, Sat 9am-1pm</div>
+          <div class="location-services">Services: Counseling · Wellness & Community</div>
+        </div>
+        <div class="location-img">Photo</div>
+      </li>
+      <li class="location-row">
+        <div class="location-info">
+          <h4><a href="mrcs-wf-location-v5.html">Wytheville Office</a></h4>
+          <div class="location-meta">[pin] 789 Elm Street, Wytheville, VA 24382</div>
+          <div class="location-meta">[phone] (276) 228-1765</div>
+          <div class="location-meta">[email] wytheville@mrcs.org</div>
+          <div class="location-meta">[clock] Mon-Fri 8am-5pm</div>
+          <div class="location-services">Services: Crisis Management · Developmental Disability · Residential</div>
+        </div>
+        <div class="location-img">Photo</div>
+      </li>
+      <li class="location-row">
+        <div class="location-info">
+          <h4><a href="mrcs-wf-location-v5.html">Hillsville Office</a></h4>
+          <div class="location-meta">[pin] 321 Ridge Road, Hillsville, VA 24343</div>
+          <div class="location-meta">[phone] (276) 728-2501</div>
+          <div class="location-meta">[email] hillsville@mrcs.org</div>
+          <div class="location-meta">[clock] Mon-Fri 9am-5pm</div>
+          <div class="location-services">Services: Counseling · Case Management · Employment Support</div>
+        </div>
+        <div class="location-img">Photo</div>
+      </li>
+      <li class="location-row">
+        <div class="location-info">
+          <h4><a href="mrcs-wf-location-v5.html">Independence Office</a></h4>
+          <div class="location-meta">[pin] 654 Pine Lane, Independence, VA 24348</div>
+          <div class="location-meta">[phone] (276) 773-5411</div>
+          <div class="location-meta">[email] independence@mrcs.org</div>
+          <div class="location-meta">[clock] Mon-Fri 8am-5pm</div>
+          <div class="location-services">Services: Wellness & Community · Residential · Employment Support</div>
+        </div>
+        <div class="location-img">Photo</div>
+      </li>
+    </ul>
+    <div class="locations-pagination">
+      <span class="active">1</span>
+      <a href="#">2</a>
+      <a href="#">3</a>
     </div>
   </div>
+</section>
 
-  <!-- HEADER -->
-  <div id="mrcs-header"></div>
-
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div class="hero-inner">
-      <div class="breadcrumb">
-        <a href="mrcs-wf-home-v5.html">Home</a> / News & Events
+<!-- CALLOUT SECTION -->
+<section class="callout">
+  <div class="container">
+    <div class="callout-row">
+      <div class="callout-text">
+        <div class="section-label">Callout Section</div>
+        <h2>Section Heading</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-      <h1>News & Events</h1>
-      <p class="subhead">Sub-title or short description tagline text</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula. Sed sed odio leo. Fusce id justo eget ex laoreet tincidunt. Phasellus pharetra dui vel finibus placerat.</p>
-    </div>
-  </section>
-
-  <!-- FILTER ROW -->
-  <div class="news-filters">
-    <div class="container">
-      <div class="filters-row">
-        <select class="filter-select">
-          <option>Filter Item</option>
-        </select>
-        <select class="filter-select">
-          <option>Category</option>
-        </select>
-        <button class="btn btn-secondary" style="padding:8px 20px;font-size:14px;">Select</button>
-      </div>
+      <div class="callout-media">Media</div>
     </div>
   </div>
+</section>
 
-  <!-- NEWS GRID -->
-  <section id="news-grid" class="news-grid-section">
-    <div class="container">
-      <div class="news-grid">
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
+<!-- SERVICES -->
+<div id="mrcs-services"></div>
 
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
+<!-- WORK CTA -->
+<div id="mrcs-work-cta"></div>
 
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
+<!-- FOOTER -->
+<div id="mrcs-footer"></div>
 
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-card-img">Image — 16:9</div>
-          <div class="news-card-body">
-            <h4><a href="mrcs-wf-news-post-v5.html">This is a placeholder for this specific news article</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non imperdiet enim. Nullam at euismod ipsum, non suscipit ligula.</p>
-            <span class="date">January 22, 2023</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAGINATION -->
-  <div class="pagination">
-    <div class="container">
-      <div class="pagination-row">
-        <a href="#">‹</a>
-        <span class="active">1</span>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">›</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CRISIS -->
-  <div id="mrcs-crisis"></div>
-
-  <!-- SERVICES -->
-  <div id="mrcs-services"></div>
-
-  <!-- WORK CTA -->
-  <div id="mrcs-work-cta"></div>
-
-  <!-- FOOTER -->
-  <div id="mrcs-footer"></div>
-
-  <script src="mrcs-components.js"></script>
+<script src="mrcs-components.js"></script>
 
 </body>
 </html>
 
-<!-- CHANGELOG v5
-● Hero section: white background, centered layout (max-width 800px)
-● Breadcrumb navigation with link to home
-● Responsive typography using clamp() for h1
-● Filter row: compact with two select dropdowns and secondary button
-● News grid: 3-column layout (responsive to 1 column on mobile)
-● 12 news cards with image placeholders (16:9 aspect ratio), heading, description, and date
-● Pagination: centered with prev/next arrows and numbered pages (page 1 active/bold)
-● Shared component divs: header, crisis, services, work-cta, footer
-● All sections use MRCS color palette and spacing system
-● Mobile breakpoint at 768px collapses grid to single column
+<!-- CHANGELOG
+v5:
+- New file: Individual Service detail page template
+- Hero: H1 + subhead + body paragraphs with sub-headings (2 H3 with paired paragraphs each)
+- Crisis banner (shared component)
+- Locations section: intro text + map placeholder + City/Services filters + location list rows with metadata icons + image thumbnails (120x90px) + pagination
+- Callout section: text + 280x220px media placeholder
+- Services cards grid (shared component)
+- Work CTA (shared component)
+- Footer (shared component)
 -->
