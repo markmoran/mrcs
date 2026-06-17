@@ -387,12 +387,13 @@
     /* DONATION AMOUNT SELECTOR */
     .donation-selector-section { background: #f4f4f4; padding: 72px 0; }
     .donation-selector-card {
-      max-width: 520px; margin: 0 auto;
+      max-width: 850px; margin: 0 auto;
       background: #fff; border: 1px solid var(--border);
-      border-radius: 6px; padding: 40px 36px;
+      border-radius: 6px; padding: 48px 44px;
+      display: grid; grid-template-columns: 1fr 220px; gap: 48px; align-items: start;
     }
-    .donation-selector-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--text-dark); }
-    .donation-selector-card > p { font-size: 14px; color: var(--text-mid); margin-bottom: 24px; line-height: 1.6; }
+    .donation-selector-left h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--text-dark); }
+    .donation-selector-left > p { font-size: 14px; color: var(--text-mid); margin-bottom: 24px; line-height: 1.6; }
     .donation-amount-display {
       display: flex; align-items: center; gap: 0;
       border: 1px solid var(--border); border-radius: 4px;
@@ -406,25 +407,6 @@
     .donation-amount-value {
       flex: 1; padding: 0 16px; font-size: 36px; font-weight: 700;
       color: var(--text-dark);
-    }
-    .donation-amounts-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 10px; margin-bottom: 20px;
-    }
-    .amount-btn {
-      padding: 14px 8px; font-size: 15px; font-weight: 600;
-      border: 2px solid var(--text-dark); border-radius: 4px; cursor: pointer;
-      text-align: center;
-    }
-    .amount-btn.selected {
-      background: #fff; color: var(--text-dark); border-color: var(--text-dark);
-    }
-    .amount-btn:not(.selected) {
-      background: var(--text-dark); color: #fff;
-    }
-    .amount-btn-custom {
-      grid-column: 1 / 2; background: var(--text-dark); color: #fff;
-      border-color: var(--text-dark);
     }
     .donation-recurring-row {
       display: flex; align-items: center; gap: 10px;
@@ -447,6 +429,19 @@
     .donation-secure-note {
       text-align: center; font-size: 12px; color: var(--text-light);
       display: flex; align-items: center; justify-content: center; gap: 5px;
+    }
+    .donation-amounts-col { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
+    .amount-btn {
+      padding: 14px 8px; font-size: 15px; font-weight: 600;
+      border: 2px solid var(--text-dark); border-radius: 4px; cursor: pointer;
+      text-align: center;
+    }
+    .amount-btn.selected { background: #fff; color: var(--text-dark); }
+    .amount-btn:not(.selected) { background: var(--text-dark); color: #fff; }
+    @media (max-width: 640px) {
+      .donation-selector-card { grid-template-columns: 1fr; }
+      .donation-amounts-col { flex-direction: row; flex-wrap: wrap; }
+      .amount-btn { flex: 1 1 calc(33% - 8px); }
     }
 
     /* USE OF DONATIONS */
@@ -504,39 +499,45 @@
   <section id="donation-form" class="donation-selector-section">
     <div class="container">
       <div class="donation-selector-card">
-        <h2>Choose Amount</h2>
-        <p>How much would you like to donate? Your gift goes directly to supporting the people and programs at Mount Rogers Community Services.</p>
 
-        <div class="donation-amount-display">
-          <span class="donation-currency">$</span>
-          <span class="donation-amount-value">100</span>
+        <!-- LEFT: title, description, amount display, recurring, continue -->
+        <div class="donation-selector-left">
+          <h2>Choose Amount</h2>
+          <p>How much would you like to donate? Your gift goes directly to supporting the people and programs at Mount Rogers Community Services.</p>
+
+          <div class="donation-amount-display">
+            <span class="donation-currency">$</span>
+            <span class="donation-amount-value">100</span>
+          </div>
+
+          <div class="donation-recurring-row">
+            <input type="checkbox" id="recurring">
+            <label for="recurring">Make this donation every
+              <select>
+                <option>month</option>
+                <option>year</option>
+              </select>
+            </label>
+          </div>
+
+          <a href="#" class="donation-continue-btn">Continue &rsaquo;</a>
+
+          <div class="donation-secure-note">
+            <span>&#128274;</span> Secure Donation
+          </div>
         </div>
 
-        <div class="donation-amounts-grid">
+        <!-- RIGHT: preset amount buttons stacked vertically -->
+        <div class="donation-amounts-col">
           <div class="amount-btn">$25</div>
           <div class="amount-btn">$50</div>
           <div class="amount-btn selected">$100</div>
           <div class="amount-btn">$150</div>
           <div class="amount-btn">$250</div>
           <div class="amount-btn">$500</div>
-          <div class="amount-btn amount-btn-custom">Custom Amount</div>
+          <div class="amount-btn">Custom Amount</div>
         </div>
 
-        <div class="donation-recurring-row">
-          <input type="checkbox" id="recurring">
-          <label for="recurring">Make this donation every
-            <select>
-              <option>month</option>
-              <option>year</option>
-            </select>
-          </label>
-        </div>
-
-        <a href="#" class="donation-continue-btn">Continue &rsaquo;</a>
-
-        <div class="donation-secure-note">
-          <span>&#128274;</span> Secure Donation
-        </div>
       </div>
     </div>
   </section>
