@@ -14,6 +14,40 @@
 
 (function () {
 
+  // Inject shared wireframe utility styles once
+  (function injectSharedStyles() {
+    if (document.getElementById('mrcs-shared-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'mrcs-shared-styles';
+    style.textContent = [
+      /* Callout section — used on all pages with a text+media flex row */
+      '.callout-section { background: #ffffff; padding: 80px 0; }',
+      '.callout-section.callout-gray { background: #f5f5f5; }',
+      '.callout-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 20px; }',
+      '.callout-row { display: flex; align-items: flex-start; gap: 50px; }',
+      '.callout-text { flex: 1; max-width: 589px; }',
+      '.callout-text h2 { margin-bottom: 16px; }',
+      '.callout-text p { margin-bottom: 12px; color: #555; }',
+      '.callout-text .btn { margin-top: 8px; }',
+      '.callout-media { width: 400px; height: 300px; background: #d9d9d9; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #888; border-radius: 4px; }',
+      '@media (max-width: 768px) { .callout-row { flex-direction: column; } .callout-media { width: 100%; height: 200px; } }',
+
+      /* Service page locations section */
+      '.locations-service-section { background: #f6f6f6; padding: 64px 0; }',
+      '.locations-service-section h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }',
+      '.locations-service-section > .container > p { margin-bottom: 24px; color: #555; }',
+      '.locations-map-placeholder { width: 100%; height: 400px; background: #d9d9d9; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #888; margin-bottom: 32px; }',
+      '.location-mini-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 32px; }',
+      '.location-mini-card { background: #fff; padding: 20px; border: 1px solid #e0e0e0; border-radius: 6px; }',
+      '.location-mini-name { font-size: 16px; font-weight: 700; text-decoration: underline; margin-bottom: 8px; }',
+      '.location-mini-addr, .location-mini-phone { font-size: 13px; color: #555; }',
+      '.locations-service-cta { text-align: center; margin-top: 8px; }',
+      '@media (max-width: 768px) { .location-mini-grid { grid-template-columns: 1fr 1fr; } }',
+      '@media (max-width: 480px) { .location-mini-grid { grid-template-columns: 1fr; } }'
+    ].join('\n');
+    document.head.appendChild(style);
+  })();
+
   var C = {};
 
   /* ----------------------------------------------------------
@@ -217,6 +251,46 @@
   `;
 
   /* ----------------------------------------------------------
+     SERVICE PAGE LOCATIONS SECTION
+     Shared across all 8 individual service pages.
+     Placeholder cards only — no real location names.
+  ---------------------------------------------------------- */
+  C.locationsService = `
+    <section class="locations-service-section">
+      <div class="container">
+        <h2>Locations</h2>
+        <p>Find a Mount Rogers location near you offering this service.</p>
+        <div class="locations-map-placeholder">[Map Placeholder]</div>
+        <div class="location-mini-grid">
+          <div class="location-mini-card">
+            <div class="location-mini-name">Location Name</div>
+            <div class="location-mini-addr">Address Placeholder, VA</div>
+            <div class="location-mini-phone">(888) 555-1234</div>
+          </div>
+          <div class="location-mini-card">
+            <div class="location-mini-name">Location Name</div>
+            <div class="location-mini-addr">Address Placeholder, VA</div>
+            <div class="location-mini-phone">(888) 555-1234</div>
+          </div>
+          <div class="location-mini-card">
+            <div class="location-mini-name">Location Name</div>
+            <div class="location-mini-addr">Address Placeholder, VA</div>
+            <div class="location-mini-phone">(888) 555-1234</div>
+          </div>
+          <div class="location-mini-card">
+            <div class="location-mini-name">Location Name</div>
+            <div class="location-mini-addr">Address Placeholder, VA</div>
+            <div class="location-mini-phone">(888) 555-1234</div>
+          </div>
+        </div>
+        <div class="locations-service-cta">
+          <a href="mrcs-wf-locations-v5.html" class="btn btn-secondary">View All Locations</a>
+        </div>
+      </div>
+    </section>
+  `;
+
+  /* ----------------------------------------------------------
      CRISIS BANNER
   ---------------------------------------------------------- */
   C.crisis = `
@@ -345,6 +419,7 @@
     inject('mrcs-header',        C.header);
     inject('mrcs-services',      C.services);
     inject('mrcs-home-services', C.homeServices);
+    inject('mrcs-locations-service', C.locationsService);
     inject('mrcs-crisis',        C.crisis);
     inject('mrcs-work-cta',      C.workCta);
     inject('mrcs-footer',        C.footer);

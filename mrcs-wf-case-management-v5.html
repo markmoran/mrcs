@@ -88,27 +88,6 @@
     .hero p { margin-bottom: var(--space-md); }
     .hero h3 { margin-top: 24px; margin-bottom: 12px; }
 
-    /* LOCATIONS SECTION */
-    .locations-section { background: var(--bg); padding: 64px 0; }
-    .locations-section > .container > p { margin-bottom: 24px; }
-    .locations-map { width: 100%; height: 360px; background: var(--label-bg); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--text-light); border-radius: var(--radius); margin-bottom: 24px; }
-    .locations-filters { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .loc-select { height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; color: var(--text-mid); background: var(--surface); min-width: 140px; }
-    .locations-count { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
-    .location-list { list-style: none; }
-    .location-row { display: flex; gap: 24px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
-    .location-row:last-child { border-bottom: none; }
-    .location-info { flex: 1; }
-    .location-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .location-info h4 a { color: var(--text-dark); text-decoration: underline; }
-    .location-info h4 a:hover { opacity: 0.75; text-decoration: none; }
-    .location-meta { font-size: 13px; color: var(--text-mid); margin-bottom: 4px; }
-    .location-services { font-size: 13px; color: var(--text-mid); margin-top: 8px; }
-    .location-img { width: 120px; height: 90px; background: var(--label-bg); border-radius: var(--radius); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-light); }
-    .locations-pagination { display: flex; justify-content: center; gap: 6px; margin-top: 32px; }
-    .locations-pagination a, .locations-pagination span { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-dark); text-decoration: none; }
-    .locations-pagination span.active { background: var(--text-dark); color: #fff; border-color: var(--text-dark); font-weight: 700; }
-
     /* CALLOUT */
     .callout { background: var(--surface); padding: var(--space-xl) 0; }
     .callout-row { display: flex; gap: 48px; align-items: flex-start; }
@@ -240,49 +219,20 @@
 <!-- CRISIS -->
 <div id="mrcs-crisis"></div>
 
-<!-- LOCATIONS SECTION -->
-<section class="locations-section">
-  <div class="container">
-    <h2 style="margin-bottom:16px;">Locations</h2>
-    <p style="margin-bottom:24px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi aget dui mollis tincidunt nec quis eros.</p>
-    <div style="width:100%;height:400px;background:#d9d9d9;display:flex;align-items:center;justify-content:center;font-size:14px;color:#888;margin-bottom:24px;">Map Placeholder</div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;">
-      <div style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:20px;">
-        <h4 style="margin-bottom:8px;font-size:15px;"><a href="mrcs-wf-location-v5.html">Location Name</a></h4>
-        <p style="font-size:13px;margin-bottom:4px;">Address Placeholder</p>
-        <p style="font-size:13px;">(888) 555-1234</p>
-      </div>
-      <div style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:20px;">
-        <h4 style="margin-bottom:8px;font-size:15px;"><a href="mrcs-wf-location-v5.html">Location Name</a></h4>
-        <p style="font-size:13px;margin-bottom:4px;">Address Placeholder</p>
-        <p style="font-size:13px;">(888) 555-1234</p>
-      </div>
-      <div style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:20px;">
-        <h4 style="margin-bottom:8px;font-size:15px;"><a href="mrcs-wf-location-v5.html">Location Name</a></h4>
-        <p style="font-size:13px;margin-bottom:4px;">Address Placeholder</p>
-        <p style="font-size:13px;">(888) 555-1234</p>
-      </div>
-      <div style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:20px;">
-        <h4 style="margin-bottom:8px;font-size:15px;"><a href="mrcs-wf-location-v5.html">Location Name</a></h4>
-        <p style="font-size:13px;margin-bottom:4px;">Address Placeholder</p>
-        <p style="font-size:13px;">(888) 555-1234</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:24px;"><a href="mrcs-wf-locations-v5.html" class="btn btn-secondary">View All Locations</a></div>
-  </div>
-</section>
+<!-- LOCATIONS SERVICE SECTION -->
+<div id="mrcs-locations-service"></div>
 
 <!-- CALLOUT SECTION -->
-<section style="background:#ffffff;padding:80px 0;">
+<section class="callout-section">
   <div class="container">
-    <div class="section-label">Callout Section</div>
-    <div style="display:flex;align-items:flex-start;gap:50px;">
-      <div style="max-width:589px;flex:1;">
-        <h2 style="margin-bottom:16px;">Section Heading</h2>
-        <p style="margin-bottom:12px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div class="callout-label">Callout Section</div>
+    <div class="callout-row">
+      <div class="callout-text">
+        <h2>Section Heading</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-      <div style="width:400px;height:300px;background:#d9d9d9;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:#888;">Media Placeholder</div>
+      <div class="callout-media">Media Placeholder</div>
     </div>
   </div>
 </section>
