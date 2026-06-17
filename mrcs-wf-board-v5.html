@@ -112,7 +112,7 @@
     .hero .subhead { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; }
     .hero p { margin-bottom: var(--space-md); }
 
-    .ceo-section { background: var(--surface); padding: 48px 0; }
+    .ceo-section { background: #f5f5f5; padding: 48px 0; }
     .ceo-section h2 { margin-bottom: 28px; }
     .ceo-card { display: flex; gap: 32px; align-items: flex-start; }
     .ceo-photo { width: 160px; height: 160px; background: var(--label-bg); border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-light); }
@@ -166,6 +166,7 @@
 <!-- CEO SECTION -->
 <section class="ceo-section">
   <div class="container">
+    <div style="max-width:850px;margin:0 auto;">
     <h2>Chief Executive Officer</h2>
     <div class="ceo-card">
       <div class="ceo-photo">Photo 160x160</div>
@@ -179,12 +180,14 @@
         </div>
       </div>
     </div>
+    </div><!-- end max-width wrapper -->
   </div>
 </section>
 
 <!-- BOARD MEMBERS SECTION -->
 <section class="board-section">
   <div class="container">
+    <div style="max-width:850px;margin:0 auto;">
     <h2>Board Members</h2>
     <p class="current-officers">Current Officers: Joanna Grayscious — Chairperson, Andrew Moss — Secretary, Kay Ratiff — Treasurer, Parker Graham</p>
 
@@ -356,6 +359,7 @@
       </div>
     </div>
 
+    </div><!-- end max-width wrapper -->
   </div>
 </section>
 
@@ -363,17 +367,15 @@
 <div id="mrcs-crisis"></div>
 
 <!-- CALLOUT SECTION -->
-<section class="callout">
-  <div class="container">
-    <p class="section-label">Callout Section</p>
-    <div class="callout-row">
-      <div class="callout-text">
-        <h2>Section Heading</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-      </div>
-      <div class="callout-media">Media 280x220</div>
+<section style="background:#ffffff;padding:80px 100px;">
+  <div style="display:flex;align-items:flex-start;gap:50px;max-width:1240px;margin:0 auto;">
+    <div style="max-width:589px;">
+      <p class="section-label">Callout Section</p>
+      <h2>Section Heading</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
     </div>
+    <div style="width:400px;height:300px;background:#d9d9d9;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:#888;border-radius:4px;">Media Placeholder</div>
   </div>
 </section>
 

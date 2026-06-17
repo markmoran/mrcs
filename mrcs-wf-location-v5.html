@@ -200,23 +200,26 @@
 <section class="location-details">
   <div class="container">
     <h2 class="location-details-heading">About This Location</h2>
+    <div style="max-width:850px;margin:0 auto;">
 
-    <div class="location-details-row">
-      <div class="location-details-text">
-        <h3>Sub Heading Text</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
-        <p>Sed vitae tortor ut mauris gravida molestie. Quisque ante dolor, pellentesque vitae sem vitae, tempus porttitor ex.</p>
+      <div style="display:flex;gap:48px;align-items:flex-start;margin-bottom:56px;">
+        <div style="flex:1;">
+          <h3>Sub Heading Text</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          <p>Sed vitae tortor ut mauris gravida molestie. Quisque ante dolor, pellentesque vitae sem vitae, tempus porttitor ex.</p>
+        </div>
+        <div style="width:429px;height:280px;background:#d9d9d9;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#888;">Media</div>
       </div>
-      <div class="location-details-media ph-img">Media</div>
-    </div>
 
-    <div class="location-details-row reverse">
-      <div class="location-details-text">
-        <h3>Sub Heading Text</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
-        <p>Sed vitae tortor ut mauris gravida molestie. Quisque ante dolor, pellentesque vitae sem vitae, tempus porttitor ex.</p>
+      <div style="display:flex;gap:48px;align-items:flex-start;margin-bottom:0;">
+        <div style="width:429px;height:280px;background:#d9d9d9;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#888;">Media</div>
+        <div style="flex:1;">
+          <h3>Sub Heading Text</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a turpis enim. Fusce et mi eget dui mollis sollicitudin nec quis eros. Praesent placerat nisl in laoreet consequat.</p>
+          <p>Sed vitae tortor ut mauris gravida molestie. Quisque ante dolor, pellentesque vitae sem vitae, tempus porttitor ex.</p>
+        </div>
       </div>
-      <div class="location-details-media ph-img">Media</div>
+
     </div>
   </div>
 </section>
@@ -224,8 +227,54 @@
 <!-- CRISIS -->
 <div id="mrcs-crisis"></div>
 
-<!-- SERVICES -->
-<div id="mrcs-services"></div>
+<!-- SERVICES WE OFFER (custom static grid for location page) -->
+<section style="background:#f5f5f5;padding:64px 0;">
+  <div class="container">
+    <h2 style="font-size:26px;font-weight:700;margin-bottom:32px;">Services We Offer</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <a href="mrcs-wf-crisis-v5.html" style="display:block;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;color:inherit;">
+        <h4 style="margin:0 0 8px;">Crisis Management</h4>
+        <p style="font-size:14px;color:#555;margin:0 0 16px;">Immediate crisis support, locations, phone numbers and hours for all crisis sites.</p>
+        <span style="font-size:14px;font-weight:600;color:#1a1a1a;">Learn More &#8594;</span>
+      </a>
+      <a href="mrcs-wf-counseling-v5.html" style="display:block;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;color:inherit;">
+        <h4 style="margin:0 0 8px;">Counseling &amp; Psychiatry</h4>
+        <p style="font-size:14px;color:#555;margin:0 0 16px;">Outpatient mental health and psychiatric services for individuals and families.</p>
+        <span style="font-size:14px;font-weight:600;color:#1a1a1a;">Learn More &#8594;</span>
+      </a>
+      <a href="mrcs-wf-wellness-v5.html" style="display:block;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;color:inherit;">
+        <h4 style="margin:0 0 8px;">Wellness &amp; Community Engagement</h4>
+        <p style="font-size:14px;color:#555;margin:0 0 16px;">Community engagement and wellness programs designed to support recovery.</p>
+        <span style="font-size:14px;font-weight:600;color:#1a1a1a;">Learn More &#8594;</span>
+      </a>
+      <a href="mrcs-wf-dev-disability-v5.html" style="display:block;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;color:inherit;">
+        <h4 style="margin:0 0 8px;">Developmental Disability</h4>
+        <p style="font-size:14px;color:#555;margin:0 0 16px;">Support and services for individuals and families affected by developmental disabilities.</p>
+        <span style="font-size:14px;font-weight:600;color:#1a1a1a;">Learn More &#8594;</span>
+      </a>
+      <a href="mrcs-wf-residential-v5.html" style="display:block;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;color:inherit;">
+        <h4 style="margin:0 0 8px;">Residential</h4>
+        <p style="font-size:14px;color:#555;margin:0 0 16px;">Supervised residential living programs providing stable housing and support.</p>
+        <span style="font-size:14px;font-weight:600;color:#1a1a1a;">Learn More &#8594;</span>
+      </a>
+      <a href="mrcs-wf-case-management-v5.html" style="display:block;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;color:inherit;">
+        <h4 style="margin:0 0 8px;">Case Management</h4>
+        <p style="font-size:14px;color:#555;margin:0 0 16px;">Coordinated care and community support to help clients navigate services.</p>
+        <span style="font-size:14px;font-weight:600;color:#1a1a1a;">Learn More &#8594;</span>
+      </a>
+      <a href="mrcs-wf-community-based-v5.html" style="display:block;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;color:inherit;">
+        <h4 style="margin:0 0 8px;">Community-Based Services</h4>
+        <p style="font-size:14px;color:#555;margin:0 0 16px;">In-home and community support services delivered where clients live and work.</p>
+        <span style="font-size:14px;font-weight:600;color:#1a1a1a;">Learn More &#8594;</span>
+      </a>
+      <a href="mrcs-wf-ess-v5.html" style="display:block;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;color:inherit;">
+        <h4 style="margin:0 0 8px;">Employment Support Services</h4>
+        <p style="font-size:14px;color:#555;margin:0 0 16px;">Competitive, enriching employment opportunities and vocational support.</p>
+        <span style="font-size:14px;font-weight:600;color:#1a1a1a;">Learn More &#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- WORK CTA -->
 <div id="mrcs-work-cta"></div>

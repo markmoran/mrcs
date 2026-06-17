@@ -86,7 +86,7 @@
           <div class="nav-item">
             <a href="mrcs-wf-news-events-v5.html">News &amp; Events &#9662;</a>
             <div class="nav-dropdown">
-              <a href="mrcs-wf-news-v5.html">News / Articles Archive</a>
+              <a href="mrcs-wf-news-v5.html">News</a>
               <a href="mrcs-wf-events-v5.html">Events Listing</a>
               <a href="mrcs-wf-procurement-v5.html">Procurement Opportunities</a>
             </div>
